@@ -6,20 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/user_id_textview"
-        android:layout_width="194dp"
-        android:layout_height="58dp"
-        android:text="Username"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="74dp" />
-
     <Button
         android:id="@+id/user_delete_id_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Delete"
-        tools:layout_editor_absoluteY="84dp"
-        app:layout_constraintLeft_toRightOf="@+id/user_id_textview"
-        android:layout_marginLeft="70dp" />
+        tools:layout_editor_absoluteY="93dp"
+        app:layout_constraintLeft_toRightOf="@+id/user_delete_id_textfield"
+        android:layout_marginLeft="49dp"
+        android:layout_marginStart="49dp" />
+
+    <EditText
+        android:id="@+id/user_delete_id_textfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="93dp" />
+
 </android.support.constraint.ConstraintLayout>
