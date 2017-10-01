@@ -38,11 +38,11 @@
         android:ems="10"
         android:hint="Description"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editText7"
+        app:layout_constraintTop_toBottomOf="@+id/create_time_date_id_textfield"
         tools:layout_editor_absoluteX="85dp" />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/create_time_date_id_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

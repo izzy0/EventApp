@@ -33,4 +33,13 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="121dp" />
 
+    <Button
+        android:id="@+id/search_user_id_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        tools:layout_editor_absoluteY="16dp"
+        app:layout_constraintLeft_toRightOf="@+id/member_search_id_textfield"
+        android:layout_marginLeft="49dp" />
+
 </android.support.constraint.ConstraintLayout>
