@@ -7,7 +7,7 @@
     tools:context="com.event.app.izhar.eventapp.MainActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/username_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
@@ -18,32 +18,32 @@
         tools:layout_editor_absoluteX="85dp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/password_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/username_textfield"
         tools:layout_editor_absoluteX="85dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="39dp"
         android:text="login"
-        app:layout_constraintLeft_toRightOf="@+id/button2"
+        app:layout_constraintLeft_toRightOf="@+id/sign_up_button"
         tools:layout_editor_absoluteY="253dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/sign_up_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="sign up"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/password_textfield"
         tools:layout_editor_absoluteX="85dp" />
 
 </android.support.constraint.ConstraintLayout>
