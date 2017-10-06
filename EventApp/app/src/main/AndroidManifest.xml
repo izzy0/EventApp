@@ -20,6 +20,10 @@
         <activity android:name=".CreateEventActivity"></activity>
         <activity android:name=".CreateUserActivity"></activity>
         <activity android:name=".DeleteAdminMembersActivity"></activity>
+        <activity android:name=".EventActivity"></activity>
+        <activity android:name=".EventDetailsActivity"></activity>
+        <activity android:name=".GalleryActivity"></activity>
+        <activity android:name=".GalleryDetailsActivity"></activity>
 
     </application>
 
