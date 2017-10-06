@@ -16,14 +16,14 @@ public class EventActivity extends AppCompatActivity{
     public Button search;
 
     public void init(){
-        add = (Button)findViewById(R.id.admin_add_button);
+        add = (Button)findViewById(R.id.create_event_button);
         search = (Button)findViewById(R.id.search_button);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View e) {
 
-                 Intent event = new Intent(EventActivity.this, DeleteAdminMembersActivity.class);
+                 Intent event = new Intent(EventActivity.this, EventDetailsActivity.class);
             }
         });
 
