@@ -15,7 +15,7 @@
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="85dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="80dp" />
+        android:layout_marginTop="79dp" />
 
     <EditText
         android:id="@+id/create_password_id_textfield"

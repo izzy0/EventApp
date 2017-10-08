@@ -16,8 +16,8 @@ public class EventActivity extends AppCompatActivity{
     public Button search;
 
     public void init(){
-        add = (Button)findViewById(R.id.create_event_button);
-        search = (Button)findViewById(R.id.search_button);
+        add = (Button)findViewById(R.id.create_event_id_buttonbutton);
+        search = (Button)findViewById(R.id.search_id_buttonbutton);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
