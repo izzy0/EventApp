@@ -32,6 +32,7 @@ public class EventDetailsActivity extends AppCompatActivity {
             public void onClick(View m) {
 
                 Intent menu = new Intent(EventDetailsActivity.this, EventDetailsActivity.class);
+                startActivity(menu);
             }
         });
 
@@ -40,6 +41,7 @@ public class EventDetailsActivity extends AppCompatActivity {
             public void onClick(View s) {
 
                 Intent search = new Intent(EventDetailsActivity.this, EventActivity.class);
+                startActivity(search);
 
             }
         });
@@ -49,6 +51,7 @@ public class EventDetailsActivity extends AppCompatActivity {
             public void onClick(View pp) {
 
                 Intent popularPhotos = new Intent(EventDetailsActivity.this, EventDetailsActivity.class);
+                startActivity(popularPhotos);
             }
 
         });
@@ -58,6 +61,7 @@ public class EventDetailsActivity extends AppCompatActivity {
             public void onClick(View sp) {
 
                 Intent sharedPhotos = new Intent(EventDetailsActivity.this, EventDetailsActivity.class);
+                startActivity(sharedPhotos);
             }
         });
 
@@ -66,6 +70,7 @@ public class EventDetailsActivity extends AppCompatActivity {
             public void onClick(View hp) {
 
                 Intent hostPhotos = new Intent(EventDetailsActivity.this, EventDetailsActivity.class);
+                startActivity(hostPhotos);
             }
         });
 
@@ -74,6 +79,7 @@ public class EventDetailsActivity extends AppCompatActivity {
             public void onClick(View u) {
 
                 Intent uploadPhotos = new Intent(EventDetailsActivity.this, EventDetailsActivity.class);
+                startActivity(uploadPhotos);
             }
         });
     }

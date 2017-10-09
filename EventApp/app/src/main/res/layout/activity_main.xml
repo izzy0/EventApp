@@ -29,16 +29,16 @@
         tools:layout_editor_absoluteX="85dp" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/login_id_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="39dp"
         android:text="login"
-        app:layout_constraintLeft_toRightOf="@+id/sign_up_button"
+        app:layout_constraintLeft_toRightOf="@+id/sign_up_id_button"
         tools:layout_editor_absoluteY="253dp" />
 
     <Button
-        android:id="@+id/sign_up_button"
+        android:id="@+id/sign_up_id_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
