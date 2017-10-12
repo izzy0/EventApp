@@ -40,7 +40,7 @@ public class EventDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View s) {
 
-                Intent search = new Intent(EventDetailsActivity.this, EventActivity.class);
+                Intent search = new Intent(EventDetailsActivity.this, MainActivity.class);
                 startActivity(search);
 
             }
