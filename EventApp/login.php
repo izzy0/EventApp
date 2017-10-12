@@ -10,7 +10,7 @@
     mysqli_stmt_bind_param($statement, "s", $user);
     mysqli_stmt_execute($statement);
     mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($statement, $__pkuserid, $first_name, $last_name, $username, $password);
+    mysqli_stmt_bind_result($statement, $__pkuserid, , $username, $password, $first_name, $last_name, $email, $personal_site_url, $isadmin, $ishost);
 
     $response = array();
     $response["success"] = false;
