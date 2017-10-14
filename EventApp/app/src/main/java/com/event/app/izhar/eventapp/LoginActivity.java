@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Debug;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -203,7 +204,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+//        return email.contains("@");
+    return true;
     }
 
     private boolean isPasswordValid(String password) {
@@ -318,31 +320,35 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-
+            System.out.println("D1");
             Response.Listener<String> responseListener = new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try {
+                        System.out.println("D2");
 
                         Log.i("tagconvertstr", "["+response+"]");
                         JSONObject jsonObject = new JSONObject(response);
                         boolean success = jsonObject.getBoolean("success");
 
                         if(success){
+                            System.out.println("D3");
 
                             String username = jsonObject.getString("username");
-                            String userid = jsonObject.getString("__pkuserid");
+                            String userId = jsonObject.getString("__pkuserid");
 
                             User user = new User("admin","F_admin","L_admin", "admin@admin.com",true,true);
 
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.putExtra("username", username);
-                            intent.putExtra("user_id", userid);
+                            intent.putExtra("user_id", userId);
 
                             LoginActivity.this.startActivity(intent);
                             finish();
 
                         }else{
+                            System.out.println("D4");
+
                             Toast.makeText(getApplicationContext(), "Failed to Login",
                                     Toast.LENGTH_SHORT).show();
                             System.out.println("-----! failed login");;
@@ -352,7 +358,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     }
                 }
             };
-
+            System.out.println("D5");
             LoginRequest loginRequest = new LoginRequest(mEmail, mPassword, responseListener);
             System.out.println("parameters "+loginRequest.getParams());
             RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);

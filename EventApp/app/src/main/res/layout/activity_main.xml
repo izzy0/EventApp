@@ -41,13 +41,13 @@
         tools:layout_editor_absoluteY="8dp" />
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/event_listView"
         android:layout_width="365dp"
         android:layout_height="372dp"
-        android:layout_marginTop="-9dp"
-        app:layout_constraintTop_toBottomOf="@+id/side_menu_id_button"
-        tools:layout_editor_absoluteX="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_marginTop="-9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/side_menu_id_button"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="13dp" />
 </android.support.constraint.ConstraintLayout>

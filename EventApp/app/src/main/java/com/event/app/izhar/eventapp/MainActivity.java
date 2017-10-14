@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         add = (Button) findViewById(R.id.create_event_id_button);
         search = (Button) findViewById(R.id.search_id_button);
         menu = (Button) findViewById(R.id.side_menu_id_button);
+        ListView list = (ListView) findViewById(R.id.event_listView);
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        //populate listview
     }
 
     @Override
