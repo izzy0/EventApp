@@ -1,6 +1,8 @@
 <?php
     //require("password.php");
     $connect = mysqli_connect("localhost", "id3122174_root", "B3t4admin", "id3122174_eventapp_beta");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
