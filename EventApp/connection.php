@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost"; //replace it with your database server name
+$servername = "localhost";
 $username = "id3122174_root";  
 $password = "B3t4admin";  
-$dbname = "db_client";
+$dbname = "id3122174_eventapp_beta";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection

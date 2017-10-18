@@ -39,7 +39,7 @@ public class LoginTwoActivity extends AppCompatActivity implements AsyncResponse
         postData.put("txtPassword", password.getText().toString());
 
         PostResponseAsyncTask loginTask = new PostResponseAsyncTask(this, postData);
-        loginTask.execute("http://10.0.2.2/eventapp/login.php");
+        loginTask.execute("http://cq7243tk.000webhostapp.com/login.php");
     }
 
 

@@ -5,26 +5,56 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-public class CreateUserActivity extends AppCompatActivity {
+import com.kosalgeek.asynctask.AsyncResponse;
+import com.kosalgeek.asynctask.PostResponseAsyncTask;
 
-    public Button newUser;
+import java.util.HashMap;
 
-    public void init() {
-        newUser = (Button) findViewById(R.id.create_user_id_button);
+public class CreateUserActivity extends AppCompatActivity implements AsyncResponse, View.OnClickListener {
 
-        newUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View c) {
+    private EditText username, password, email, firstName, lastName;
+    private Button newUser;
 
-                Intent createUser = new Intent(CreateUserActivity.this, CreateUserActivity.class);
-            }
-        });
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_user_activity);
+
+        username = (EditText) findViewById(R.id.create_username_id_textfield);
+        password = (EditText) findViewById(R.id.create_user_password_id);
+        firstName = (EditText) findViewById(R.id.first_name_id);
+        lastName = (EditText) findViewById(R.id.last_name_id);
+        email = (EditText) findViewById(R.id.create_email_id_textfield);
+        newUser = (Button) findViewById(R.id.create_user_id_button);
+        newUser.setOnClickListener(this);
+    }
+
+    public void onClick(View v) {
+
+        HashMap postData = new HashMap();
+        postData.put("btnLogin", "Login");
+        postData.put("mobile", "android");
+        postData.put("txtUsername", username.getText().toString());
+        postData.put("txtPassword", password.getText().toString());
+        postData.put("txtUsername", firstName.getText().toString());
+        postData.put("txtPassword", lastName.getText().toString());
+
+        PostResponseAsyncTask registerTask = new PostResponseAsyncTask(this, postData);
+        registerTask.execute("http://10.0.2.2/EventApp/EventApp/register.php");
+    }
+
+    @Override
+    public void processFinish(String result) {
+        if (result.equals("success")) {
+            Toast.makeText(this, "Register Successful!",
+                    Toast.LENGTH_LONG).show();
+            Intent next = new Intent(this, MainActivity.class);
+            startActivity(next);
+        }
+
     }
 }
 
@@ -32,7 +62,8 @@ public class CreateUserActivity extends AppCompatActivity {
  *
  * edit code to work
  *
- public class CreateActivity extends AppCompatActivity {
+ public class CreateActivity ext
+ ends AppCompatActivity {
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
