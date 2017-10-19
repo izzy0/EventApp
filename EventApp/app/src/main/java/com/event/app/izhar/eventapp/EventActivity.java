@@ -33,7 +33,7 @@ public class EventActivity extends Fragment implements CreateEvent.OnFragmentInt
             public void onClick(View view) {
                 Fragment fragment = new CreateEvent();
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.drawer_layout, fragment);
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
             }
         });
