@@ -1,5 +1,6 @@
 package com.event.app.izhar.eventapp;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -89,6 +90,9 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
             case R.id.events:
                 fragment = new EventActivity();
                 break;
+            case R.id.nav_login:
+                Intent intent = new Intent(this, LoginTwoActivity.class);
+                startActivity(intent);
         }
 
         if (fragment != null) {

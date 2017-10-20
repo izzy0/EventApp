@@ -35,6 +35,7 @@
         <activity android:name=".DeleteAdminMembersActivity" />
         <activity android:name=".EventDetailsActivity" />
         <activity android:name=".GalleryActivity" />
+        <activity android:name=".LoginTwoActivity" />
         <activity
             android:name=".NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
