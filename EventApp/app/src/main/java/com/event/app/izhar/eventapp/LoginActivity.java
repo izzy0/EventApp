@@ -203,7 +203,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+       // return email.contains("@");
+        return true;
     }
 
     private boolean isPasswordValid(String password) {
@@ -397,7 +398,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 Log.d("Background thread","POST successful background thread execution");
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, NavigationDrawer.class);
 //                intent.putExtra("username", "admin");
 //                intent.putExtra("user_id", "admin");
                 startActivity(intent);

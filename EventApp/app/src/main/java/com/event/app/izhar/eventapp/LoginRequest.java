@@ -1,11 +1,15 @@
 package com.event.app.izhar.eventapp;
 
+import android.util.Log;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by Izhar on 10/9/2017.
@@ -23,6 +27,8 @@ public class LoginRequest extends StringRequest {
         params = new HashMap<>();
         params.put("username", username);
         params.put("password", password);
+
+        Log.d(TAG, "LoginRequest: "+username+" "+password);
     }
 
     @Override
