@@ -42,8 +42,8 @@ public class CreateUserActivity extends AppCompatActivity implements AsyncRespon
         postData.put("txtUsername", firstName.getText().toString());
         postData.put("txtPassword", lastName.getText().toString());
 
-        PostResponseAsyncTask registerTask = new PostResponseAsyncTask(this, postData);
-        registerTask.execute("http://10.0.2.2/EventApp/EventApp/register.php");
+        PostResponseAsyncTask registerTask = new PostResponseAsyncTask(this, postData, this);
+        registerTask.execute("http://cq7243tk.000webhostapp.com/register.php");
     }
 
     @Override

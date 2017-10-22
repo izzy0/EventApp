@@ -18,8 +18,7 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
@@ -34,8 +33,13 @@
         <activity android:name=".CreateUserActivity" />
         <activity android:name=".DeleteAdminMembersActivity" />
         <activity android:name=".EventDetailsActivity" />
-        <activity android:name=".GalleryActivity" />
-        <activity android:name=".LoginTwoActivity" />
+        <!--<activity android:name=".GalleryActivity" />-->
+        <activity android:name=".LoginTwoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
