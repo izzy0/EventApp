@@ -93,6 +93,9 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
             case R.id.nav_login:
                 Intent intent = new Intent(this, LoginTwoActivity.class);
                 startActivity(intent);
+            case R.id.nav_register:
+                Intent intent1 = new Intent(this, CreateUserActivity.class);
+                startActivity(intent1);
         }
 
         if (fragment != null) {
