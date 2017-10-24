@@ -5,7 +5,7 @@
     //$pass = "admin";
     $user = $_POST["username"];
     $pass = $_POST["password"];
-    $statement = mysqli_prepare($connect, "SELECT * FROM users WHERE username = ?");
+    $statement = mysqli_prepare($connect, "SELECT * FROM users WHERE username = ? AND password = ?");
     mysqli_stmt_bind_param($statement, "s", $user);
     mysqli_stmt_execute($statement);
     mysqli_stmt_store_result($statement);
