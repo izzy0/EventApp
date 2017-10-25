@@ -12,8 +12,12 @@
             android:id="@+id/create_event"
             android:icon="@drawable/ic_menu_manage"
             android:title="Create Event" />
-        <!--<item-->
-            <!--android:id="@+id/nav_manage"-->
-            <!--android:icon="@drawable/ic_menu_manage"-->
-            <!--android:title="Private" />-->
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Login" />
+    <item
+        android:id="@+id/nav_register"
+        android:icon="@drawable/ic_menu_share"
+        android:title="Register" />
 </menu>
