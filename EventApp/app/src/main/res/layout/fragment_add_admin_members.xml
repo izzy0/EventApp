@@ -5,8 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.event.app.izhar.eventapp.AddAdminMembersActivity">
-
+    tools:context="com.event.app.izhar.eventapp.AddAdminMember">
+<!-- TODO change tools:context to right activity!-->
     <EditText
         android:id="@+id/member_search_id_textfield"
         android:layout_width="wrap_content"

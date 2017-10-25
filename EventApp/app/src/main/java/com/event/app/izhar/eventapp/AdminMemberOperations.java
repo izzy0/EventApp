@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class DeleteAdminMembersActivity extends AppCompatActivity {
+public class AdminMemberOperations extends AppCompatActivity {
 
     public Button delete;
-
+//TODO implement add admin members and delete admin members
     public void init() {
         delete = (Button) findViewById(R.id.user_delete_id_button);
 
@@ -17,7 +17,7 @@ public class DeleteAdminMembersActivity extends AppCompatActivity {
             @Override
             public void onClick(View d) {
 
-                Intent deleteUser = new Intent(DeleteAdminMembersActivity.this, DeleteAdminMembersActivity.class);
+                Intent deleteUser = new Intent(AdminMemberOperations.this, AdminMemberOperations.class);
             }
         });
     }
@@ -25,7 +25,7 @@ public class DeleteAdminMembersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delete_admin_members_activity);
+        setContentView(R.layout.fragment_delete_admin_members);
         init();
     }
 }

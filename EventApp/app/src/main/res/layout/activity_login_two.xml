@@ -39,9 +39,23 @@ android:orientation="vertical">
         android:ems="10"
         android:inputType="textPassword" />
 
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Login"
-    android:id="@+id/btnLogin" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="register" />
+
+    </LinearLayout>
+
 </LinearLayout>
