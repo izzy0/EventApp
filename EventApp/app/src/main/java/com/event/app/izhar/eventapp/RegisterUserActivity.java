@@ -14,14 +14,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.kosalgeek.asynctask.AsyncResponse;
-import com.kosalgeek.asynctask.PostResponseAsyncTask;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-
-public class CreateUserActivity extends AppCompatActivity implements AsyncResponse, View.OnClickListener {
+public class RegisterUserActivity extends AppCompatActivity implements AsyncResponse, View.OnClickListener {
 
 //    private EditText username, password, email, firstName, lastName;
     private Button newUser;
@@ -34,7 +31,7 @@ public class CreateUserActivity extends AppCompatActivity implements AsyncRespon
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_user_activity);
+        setContentView(R.layout.activity_register_user);
 
         newUser = (Button) findViewById(R.id.create_user_id_button);
         newUser.setOnClickListener(this);
@@ -69,7 +66,7 @@ public class CreateUserActivity extends AppCompatActivity implements AsyncRespon
                         System.out.println("boolean json"+success);
 
                         if(success){
-                            Intent intent = new Intent(CreateUserActivity.this, NavigationDrawer.class);
+                            Intent intent = new Intent(RegisterUserActivity.this, NavigationDrawer.class);
 //                            intent.putExtra("username", uname);
                             startActivity(intent);
                             finish();
@@ -88,7 +85,7 @@ public class CreateUserActivity extends AppCompatActivity implements AsyncRespon
             RegisterRequest request = new RegisterRequest(fname, lname, uname, passw, emailString, responseListener);
             System.out.println("parameters "+request.getParams());
             Log.i("Register","["+ request.getParams()+"]");
-            RequestQueue queue = Volley.newRequestQueue(CreateUserActivity.this);
+            RequestQueue queue = Volley.newRequestQueue(RegisterUserActivity.this);
             queue.add(request);
     }
 
@@ -97,7 +94,7 @@ public class CreateUserActivity extends AppCompatActivity implements AsyncRespon
         if (result.equals("success")) {
             Toast.makeText(this, "Register Successful!",
                     Toast.LENGTH_LONG).show();
-            Intent next = new Intent(this, MainActivity.class);
+            Intent next = new Intent(this, NavigationDrawer.class);
             startActivity(next);
         }
 

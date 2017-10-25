@@ -23,17 +23,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".AddAdminMembersActivity" />
-        <activity android:name=".CreateEventActivity" />
-        <activity android:name=".CreateUserActivity" />
-        <activity android:name=".DeleteAdminMembersActivity" />
+        <activity android:name=".RegisterUserActivity" />
+        <activity android:name=".AdminMemberOperations" />
         <activity android:name=".EventDetailsActivity" />
         <activity android:name=".GalleryActivity" />
         <activity android:name=".LoginTwoActivity" />
