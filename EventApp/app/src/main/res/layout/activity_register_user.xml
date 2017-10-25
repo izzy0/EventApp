@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.event.app.izhar.eventapp.CreateUserActivity">
+    tools:context="com.event.app.izhar.eventapp.RegisterUserActivity">
 
     <EditText
         android:id="@+id/create_username_id_textfield"

@@ -3,12 +3,8 @@ package com.event.app.izhar.eventapp;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Choreographer;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -93,6 +89,9 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
             case R.id.nav_login:
                 Intent intent = new Intent(this, LoginTwoActivity.class);
                 startActivity(intent);
+            case R.id.nav_register:
+                Intent intent1 = new Intent(this, RegisterUserActivity.class);
+                startActivity(intent1);
         }
 
         if (fragment != null) {

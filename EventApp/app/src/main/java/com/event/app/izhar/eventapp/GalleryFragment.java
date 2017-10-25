@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-
+// TODO change gallery to activity NOT FRAGMENT
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the

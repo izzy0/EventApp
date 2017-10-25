@@ -21,7 +21,7 @@ public class EventDetailsActivity extends AppCompatActivity {
 
     public void init() {
         menu = (Button) findViewById(R.id.side_menu_id_button);
-        search = (Button) findViewById(R.id.search_id_button);
+//        search = (Button) findViewById(R.id.search_id_button);
         popular = (Button) findViewById(R.id.popular_photos_id_button);
         shared = (Button) findViewById(R.id.shared_photo_id_button);
         host = (Button) findViewById(R.id.host_photo_id_button);
@@ -36,15 +36,15 @@ public class EventDetailsActivity extends AppCompatActivity {
             }
         });
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View s) {
-
-                Intent search = new Intent(EventDetailsActivity.this, MainActivity.class);
-                startActivity(search);
-
-            }
-        });
+//        search.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View s) {
+//
+//                Intent search = new Intent(EventDetailsActivity.this, MainActivity.class);
+//                startActivity(search);
+//
+//            }
+//        });
 
         popular.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +87,7 @@ public class EventDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.event_details_activity);
+        setContentView(R.layout.activity_event_details);
         init();
     }
 }
