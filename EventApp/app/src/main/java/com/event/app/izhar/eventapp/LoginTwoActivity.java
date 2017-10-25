@@ -64,7 +64,7 @@ public class LoginTwoActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View r) {
-                Intent registerIntent = new Intent(LoginTwoActivity.this, CreateUserActivity.class);
+                Intent registerIntent = new Intent(LoginTwoActivity.this, RegisterUserActivity.class);
                 LoginTwoActivity.this.startActivity(registerIntent);
             }
         });
