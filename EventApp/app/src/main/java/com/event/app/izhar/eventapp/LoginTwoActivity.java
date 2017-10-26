@@ -59,7 +59,7 @@ public class LoginTwoActivity extends AppCompatActivity implements AsyncResponse
         if (result.equals("success")) {
             Toast.makeText(this, "Login Successfully!",
                     Toast.LENGTH_LONG).show();
-            Intent next = new Intent(this, NavigationDrawer.class);
+            Intent next = new Intent(this, EventNavigationDrawer.class);
             startActivity(next);
         }
         else{
