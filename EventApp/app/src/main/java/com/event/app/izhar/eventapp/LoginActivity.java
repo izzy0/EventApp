@@ -397,7 +397,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 Log.d("Background thread","POST successful background thread execution");
-                Intent intent = new Intent(LoginActivity.this, NavigationDrawer.class);
+                Intent intent = new Intent(LoginActivity.this, EventNavigationDrawer.class);
 //                intent.putExtra("username", "admin");
 //                intent.putExtra("user_id", "admin");
                 startActivity(intent);

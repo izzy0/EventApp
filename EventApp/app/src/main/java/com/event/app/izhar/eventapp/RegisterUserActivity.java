@@ -2,7 +2,6 @@ package com.event.app.izhar.eventapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -66,7 +65,7 @@ public class RegisterUserActivity extends AppCompatActivity implements AsyncResp
                         System.out.println("boolean json"+success);
 
                         if(success){
-                            Intent intent = new Intent(RegisterUserActivity.this, NavigationDrawer.class);
+                            Intent intent = new Intent(RegisterUserActivity.this, EventNavigationDrawer.class);
 //                            intent.putExtra("username", uname);
                             startActivity(intent);
                             finish();
@@ -94,7 +93,7 @@ public class RegisterUserActivity extends AppCompatActivity implements AsyncResp
         if (result.equals("success")) {
             Toast.makeText(this, "Register Successful!",
                     Toast.LENGTH_LONG).show();
-            Intent next = new Intent(this, NavigationDrawer.class);
+            Intent next = new Intent(this, EventNavigationDrawer.class);
             startActivity(next);
         }
 

@@ -18,7 +18,9 @@ public class EventActivity extends Fragment implements CreateEvent.OnFragmentInt
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
