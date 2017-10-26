@@ -14,8 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 //this is the main view
-public class NavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        CreateEvent.OnFragmentInteractionListener, GalleryFragment.OnFragmentInteractionListener{
+public class EventNavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        CreateEvent.OnFragmentInteractionListener, Gallery.OnFragmentInteractionListener{
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
@@ -78,8 +78,13 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         //TODO add the rest of the fragments
         switch (id) {
             case R.id.view_gallery:
-                fragment = new GalleryFragment();
+//                fragment = new Gallery();
+                Intent eventDetailsIntent = new Intent(this, EventDetailsNavigationDrawer.class);
+                startActivity(eventDetailsIntent);
                 break;
+            case R.id.nav_account:
+                Intent accountDetailsIntent = new Intent(this, AccountDetailsNavigationDrawer.class);
+                startActivity(accountDetailsIntent);
             case R.id.create_event:
                 fragment = new CreateEvent();
                 break;

@@ -23,13 +23,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginTwoActivity" />
         <activity android:name=".RegisterUserActivity" />
         <activity android:name=".AdminMemberOperations" />
-        <activity android:name=".EventDetailsActivity" />
-        <activity android:name=".GalleryActivity" />
-        <activity android:name=".LoginTwoActivity" />
+        <activity android:name=".EventDetailsNavigationDrawer" />
+        <activity android:name=".AccountDetailsNavigationDrawer" />
         <activity
-            android:name=".NavigationDrawer"
+            android:name=".EventNavigationDrawer"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,9 +37,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
       </activity>
-        <activity
-            android:name=".EventActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
