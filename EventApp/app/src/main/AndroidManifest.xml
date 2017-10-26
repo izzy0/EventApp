@@ -26,7 +26,6 @@
         <activity android:name=".RegisterUserActivity" />
         <activity android:name=".AdminMemberOperations" />
         <activity android:name=".EventDetailsActivity" />
-        <activity android:name=".GalleryActivity" />
         <activity android:name=".LoginTwoActivity" />
         <activity
             android:name=".NavigationDrawer"
