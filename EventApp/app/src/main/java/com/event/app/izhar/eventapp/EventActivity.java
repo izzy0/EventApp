@@ -18,7 +18,9 @@ public class EventActivity extends Fragment implements CreateEvent.OnFragmentInt
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,7 +35,7 @@ public class EventActivity extends Fragment implements CreateEvent.OnFragmentInt
             public void onClick(View view) {
                 Fragment fragment = new CreateEvent();
                 FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.drawer_layout, fragment);
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
             }
         });

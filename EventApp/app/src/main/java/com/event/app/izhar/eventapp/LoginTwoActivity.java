@@ -68,5 +68,37 @@ public class LoginTwoActivity extends AppCompatActivity {
                 LoginTwoActivity.this.startActivity(registerIntent);
             }
         });
+<<<<<<< HEAD
+=======
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        HashMap postData = new HashMap();
+        postData.put("btnLogin", "Login");
+        postData.put("mobile", "android");
+        postData.put("txtUsername", username.getText().toString());
+        postData.put("txtPassword", password.getText().toString());
+
+        PostResponseAsyncTask loginTask = new PostResponseAsyncTask(this, postData,this);
+        loginTask.execute("http://cq7243tk.000webhostapp.com/login.php");
+    }
+
+
+    @Override
+    public void processFinish(String result) {
+
+        if (result.equals("success")) {
+            Toast.makeText(this, "Login Successfully!",
+                    Toast.LENGTH_LONG).show();
+            Intent next = new Intent(this, EventNavigationDrawer.class);
+            startActivity(next);
+        }
+        else{
+            Toast.makeText(this, "Login Failed!", Toast.LENGTH_LONG).show();
+        }
+>>>>>>> 15338ae6e053b045ebcc9bc43846c5271b485919
     }
 }
