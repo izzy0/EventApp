@@ -10,22 +10,20 @@ package com.event.app.izhar.eventapp;
 public class User {
     private String username;
     private String firstName;
-    private String password;
+    private String lastName;
     private String email;
     private Boolean isHost;
     private Boolean isAdmin;
 
     //add password?
-    User(String username, String firstName, String password, String email, Boolean isHost, Boolean isAdmin){
+    User(String username, String firstName, String lastName, String email){
         this.username = username;
         this.firstName = firstName;
-        this.password = password;
+        this.lastName = lastName;
         this.email = email;
-        this.isHost = isHost;
-        this.isAdmin = isAdmin;
+//        this.isHost = isHost;
+//        this.isAdmin = isAdmin;
     }
-
-    User(){}
 
     //getter-setters
     public void setUsername(String username){
@@ -43,12 +41,12 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getPassword(){
-        return password;
+    public String getLastName(){
+        return lastName;
     }
 
-    public void setPassword(String password){
-        this.password = password;
+    public void setLastName(String lastName){
+        this.lastName = lastName;
     }
 
     public String getEmail(){
@@ -59,20 +57,20 @@ public class User {
         this.email = email;
     }
 
-    public Boolean isHost(){
-        return isHost;
-    }
-
-    public void setIsHost(Boolean isHost){
-        this.isHost = isHost;
-    }
-
-    public Boolean isAdmin(){
-        return isAdmin;
-    }
-
-    public void setIsAdmin (Boolean isAdmin){
-        this.isAdmin = isAdmin;
-    }
-    //end of getter-setter
+//    public Boolean isHost(){
+//        return isHost;
+//    }
+//
+//    public void setIsHost(Boolean isHost){
+//        this.isHost = isHost;
+//    }
+//
+//    public Boolean isAdmin(){
+//        return isAdmin;
+//    }
+//
+//    public void setIsAdmin (Boolean isAdmin){
+//        this.isAdmin = isAdmin;
+//    }
+//    //end of getter-setter
 }

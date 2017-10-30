@@ -1,5 +1,6 @@
 <?php
-    $connect = mysqli_connect("localhost", "id3122174_root", "B3t4admin", "id3122174_eventapp_beta");
+    require 'connection.php';
+   // $connect = mysqli_connect("localhost", "id3122174_root", "B3t4admin", "id3122174_eventapp_beta");
     
     //$user = "admin";
     //$pass = "admin";
