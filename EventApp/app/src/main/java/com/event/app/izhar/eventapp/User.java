@@ -10,20 +10,22 @@ package com.event.app.izhar.eventapp;
 public class User {
     private String username;
     private String firstName;
-    private String lastName;
+    private String password;
     private String email;
     private Boolean isHost;
     private Boolean isAdmin;
 
     //add password?
-    User(String username, String firstName, String lastName, String email, Boolean isHost, Boolean isAdmin){
+    User(String username, String firstName, String password, String email, Boolean isHost, Boolean isAdmin){
         this.username = username;
         this.firstName = firstName;
-        this.lastName = lastName;
+        this.password = password;
         this.email = email;
         this.isHost = isHost;
         this.isAdmin = isAdmin;
     }
+
+    User(){}
 
     //getter-setters
     public void setUsername(String username){
@@ -41,12 +43,12 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getLastName(){
-        return lastName;
+    public String getPassword(){
+        return password;
     }
 
-    public void setLastName(String lastName){
-        this.lastName = lastName;
+    public void setPassword(String password){
+        this.password = password;
     }
 
     public String getEmail(){

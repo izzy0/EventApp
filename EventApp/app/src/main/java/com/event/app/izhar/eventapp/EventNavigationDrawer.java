@@ -65,11 +65,8 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-<<<<<<< HEAD:EventApp/app/src/main/java/com/event/app/izhar/eventapp/NavigationDrawer.java
         //noinspection SimplifiableIfStatement UNUSED
-=======
         //noinspection SimplifiableIfStatement
->>>>>>> 15338ae6e053b045ebcc9bc43846c5271b485919:EventApp/app/src/main/java/com/event/app/izhar/eventapp/EventNavigationDrawer.java
 //        if (id == R.id.action_settings) {
 //            return true;
 //        }
