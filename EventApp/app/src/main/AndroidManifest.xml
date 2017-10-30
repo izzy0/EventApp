@@ -19,26 +19,26 @@
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".RegisterUserActivity" />
         <activity android:name=".AdminMemberOperations" />
         <activity android:name=".EventDetailsActivity" />
-        <activity android:name=".LoginTwoActivity" />
+        <activity android:name=".LoginTwoActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </activity>
         <activity
             android:name=".NavigationDrawer"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
       </activity>
-        <activity
-            android:name=".EventActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

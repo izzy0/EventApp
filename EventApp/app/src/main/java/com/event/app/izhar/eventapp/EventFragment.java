@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class EventActivity extends Fragment implements CreateEvent.OnFragmentInteractionListener {
+public class EventFragment extends Fragment implements CreateEvent.OnFragmentInteractionListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

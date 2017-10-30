@@ -28,8 +28,10 @@ public class LoginTwoActivity extends AppCompatActivity {
         final Button btnRegister = (Button) findViewById(R.id.btnRegister);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View l) {
+
                 final String username = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
 
@@ -39,9 +41,9 @@ public class LoginTwoActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
-                            if (success) {
+                           if (success) {
                                 String username = jsonResponse.getString("username");
-                                Intent loginIntent = new Intent(LoginTwoActivity.this, EventActivity.class);
+                                Intent loginIntent = new Intent(LoginTwoActivity.this, EventFragment.class);
                                 loginIntent.putExtra("username", username);
                                 LoginTwoActivity.this.startActivity(loginIntent);
                                 Toast.makeText(getApplicationContext(), "Success",
@@ -61,12 +63,13 @@ public class LoginTwoActivity extends AppCompatActivity {
             }
         });
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View r) {
-                Intent registerIntent = new Intent(LoginTwoActivity.this, RegisterUserActivity.class);
-                LoginTwoActivity.this.startActivity(registerIntent);
-            }
-        });
-    }
+//        btnRegister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View r) {
+//                Intent registerIntent = new Intent(LoginTwoActivity.this, RegisterUserActivity.class);
+//                LoginTwoActivity.this.startActivity(registerIntent);
+//            }
+//        });
+//    }
+    };
 }

@@ -28,7 +28,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         setSupportActionBar(toolbar);
 
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-        tx.replace(R.id.fragment_container, new EventActivity());
+        tx.replace(R.id.fragment_container, new EventFragment());
         tx.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -84,7 +84,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
                 fragment = new CreateEvent();
                 break;
             case R.id.events:
-                fragment = new EventActivity();
+                fragment = new EventFragment();
                 break;
             case R.id.nav_login:
                 Intent intent = new Intent(this, LoginTwoActivity.class);
