@@ -10,7 +10,7 @@
             android:title="Gallery" />
         <item
             android:id="@+id/create_event"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_slideshow"
             android:title="Create Event" />
         <item
             android:id="@+id/nav_login"
@@ -20,4 +20,8 @@
         android:id="@+id/nav_register"
         android:icon="@drawable/ic_menu_share"
         android:title="Register" />
+    <item
+        android:id="@+id/nav_account"
+        android:icon="@drawable/ic_menu_send"
+        android:title="Account" />
 </menu>
