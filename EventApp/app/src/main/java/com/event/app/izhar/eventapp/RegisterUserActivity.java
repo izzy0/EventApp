@@ -57,7 +57,7 @@ public class RegisterUserActivity extends AppCompatActivity implements AsyncResp
         final String lname = lastName.getText().toString();
         final String uname = username.getText().toString();
         final String passw = password.getText().toString();
-        final String emailString = password.getText().toString();
+        final String emailString = email.getText().toString();
 
         User user = new User(uname, passw, fname, lname, emailString);
         JsonGsonParser parser = new JsonGsonParser();
@@ -82,7 +82,7 @@ public class RegisterUserActivity extends AppCompatActivity implements AsyncResp
                             finish();
 
                         }else{
-                            Toast.makeText(getApplicationContext(), "Username already taken ;(",
+                            Toast.makeText(getApplicationContext(), "Username or email already taken ;(",
                                     Toast.LENGTH_SHORT).show();
                         }
 
