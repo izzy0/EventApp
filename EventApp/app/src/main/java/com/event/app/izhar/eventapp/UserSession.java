@@ -12,6 +12,7 @@ public class UserSession {
 
     private static final String USER_SESSION = "usersession";
     private static final String KEY_USERNAME = "keyusername";
+    private static final String KEY_PASSWORD = "keypassword";
     private static final String KEY_FIRST_NAME = "keyfirstname";
     private static final String KEY_LAST_NAME = "keylastname";
     private static final String KEY_EMAIL = "keyemail";
@@ -49,6 +50,7 @@ public class UserSession {
         SharedPreferences userSession = mCtx.getSharedPreferences(USER_SESSION, Context.MODE_PRIVATE);
         return new User(
                 userSession.getString(KEY_USERNAME, null),
+                userSession.getString(KEY_PASSWORD, null),
                 userSession.getString(KEY_FIRST_NAME, null),
                 userSession.getString(KEY_LAST_NAME, null),
                 userSession.getString(KEY_EMAIL, null)

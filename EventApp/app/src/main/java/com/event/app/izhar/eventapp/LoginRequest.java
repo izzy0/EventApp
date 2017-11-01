@@ -11,13 +11,10 @@ import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * Created by Izhar on 10/9/2017.
- */
 
 public class LoginRequest extends StringRequest {
 
-    private static final String LOGIN_REQUEST_URL = "https://cq7243tk.000webhostapp.com/login.php";
+    private static final String LOGIN_REQUEST_URL = "http://cq7243tk.000webhostapp.com/login.php";
     private Map<String, String> params;
 
     public LoginRequest( String username, String password,
@@ -28,7 +25,7 @@ public class LoginRequest extends StringRequest {
         params.put("username", username);
         params.put("password", password);
 
-        Log.d(TAG, "LoginRequest: "+username+" "+password);
+        Log.i("The Request Of Login", username);
     }
 
     @Override
@@ -36,4 +33,3 @@ public class LoginRequest extends StringRequest {
         return params;
     }
 }
-
