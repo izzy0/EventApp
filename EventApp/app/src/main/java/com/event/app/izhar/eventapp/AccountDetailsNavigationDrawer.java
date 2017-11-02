@@ -12,7 +12,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 //this is the user accounts activity
@@ -99,7 +98,7 @@ public class AccountDetailsNavigationDrawer extends AppCompatActivity implements
                 Intent eventIntent = new Intent(this, EventNavigationDrawer.class);
                 startActivity(eventIntent);
             case R.id.nav_login:
-                Intent intent = new Intent(this, LoginTwoActivity.class);
+                Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
             case R.id.nav_register:
                 Intent intent1 = new Intent(this, RegisterUserActivity.class);
