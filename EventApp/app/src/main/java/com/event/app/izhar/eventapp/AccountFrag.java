@@ -8,8 +8,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Switch;
 
 public class AccountFrag extends Fragment implements CreateEvent.OnFragmentInteractionListener {
+
+    private Switch isAdminSwitch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,10 @@ public class AccountFrag extends Fragment implements CreateEvent.OnFragmentInter
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account, container, false);
+
+        isAdminSwitch = (Switch) view.findViewById(R.id.account_sadmin);
+
+
 
 //        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {

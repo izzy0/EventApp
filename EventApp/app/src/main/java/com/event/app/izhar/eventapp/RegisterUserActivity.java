@@ -81,6 +81,9 @@ public class RegisterUserActivity extends AppCompatActivity implements AsyncResp
                             startActivity(intent);
                             finish();
 
+                            Toast.makeText(getApplicationContext(), "User successfully registered!",
+                                    Toast.LENGTH_LONG).show();
+
                         }else{
                             Toast.makeText(getApplicationContext(), "Username or email already taken ;(",
                                     Toast.LENGTH_SHORT).show();

@@ -1,5 +1,6 @@
 package com.event.app.izhar.eventapp;
 
+import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,7 +13,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class EventFragment extends Fragment implements CreateEvent.OnFragmentInteractionListener {
 
@@ -20,7 +24,6 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +42,14 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
                 fragmentTransaction.commit();
             }
         });
+
+        String[] eventItem = {"wedding1", "wedding2", "wedding3", "birthday", "halloween party", "2017 New years Eve Party"};
+        ListView listView = (ListView) view.findViewById(R.id.event_listview);
+        ArrayAdapter<String> eventAdaptor = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, eventItem);
+
+        listView.setAdapter(eventAdaptor);
+
+
         
         return view;
     }
