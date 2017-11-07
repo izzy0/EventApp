@@ -42,6 +42,7 @@ public class CreateEvent extends Fragment {
     private Time startTime;
     private Time endTime;
 
+    private Button createEventBtn;
 
     @SuppressLint("ValidFragment")
     public CreateEvent() {
@@ -58,10 +59,6 @@ public class CreateEvent extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        eventName = (EditText) eventName.findViewById(R.id.createevent_eventName);
-        eventType = (EditText) eventType.findViewById(R.id.createevent_eventType);
-        eventDate = (EditText) eventDate.findViewById(R.id.createevent_eventTime);
     }
 
     @Override
@@ -69,6 +66,12 @@ public class CreateEvent extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_event, container, false);
+
+        eventName = (EditText) view.findViewById(R.id.createevent_eventName);
+        eventType = (EditText) view.findViewById(R.id.createevent_eventType);
+        eventDate = (EditText) view.findViewById(R.id.createevent_eventTime);
+        createEventBtn = (Button) view.findViewById(R.id.add_event_button);
+
         Button addButton = (Button) view.findViewById(R.id.add_event_button);
         addButton.setOnClickListener(new View.OnClickListener() {
 
@@ -96,20 +99,20 @@ public class CreateEvent extends Fragment {
                             // todo call proccessFinished here
                             if (success) {
 
+                                Log.i("Success", "[IN CREATE EVENT");
                                 Toast.makeText(getContext(), "Event Created", Toast.LENGTH_SHORT).show();
 
-//                                fragment = new EventFragment();
-//                                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//                                fragmentTransaction.replace(R.id.fragment_container, fragment);
-//                                fragmentTransaction.commit();
-
+                                fragment = new EventFragment();
+                                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                                fragmentTransaction.commit();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 };
-                String passw = null, host = "admin";
+                String passw = "loc", host = "admin";
                 CreateEventRequest request = new CreateEventRequest(eventDateStr, host, passw, eventNameStr, responseListener);
                 Log.i("THE CREATE EVENT LOG", "[" + request.getParams() + "]");
                 RequestQueue queue = Volley.newRequestQueue(getContext());

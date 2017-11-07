@@ -20,10 +20,10 @@ public class CreateEventRequest extends StringRequest {
         super(Method.POST, REGISTER_REQUEST_URL, listener, null);
 
         params = new HashMap<>();
-        params.put("eventDate", eventDate);
+        params.put("date", eventDate);
         params.put("eventHost", eventHost);
-//        params.put("location", location);
-        params.put("eventName", eventName);
+        params.put("location", location);
+        params.put("eventname", eventName);
 //        params.put("images", images);
     }
 
