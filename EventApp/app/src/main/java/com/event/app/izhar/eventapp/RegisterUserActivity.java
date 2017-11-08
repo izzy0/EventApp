@@ -75,6 +75,8 @@ public class RegisterUserActivity extends AppCompatActivity implements AsyncResp
                         boolean success = jsonObject.getBoolean("success");
                         System.out.println("boolean json"+success);
 
+
+                        // todo call proccessFinished here
                         if(success){
                             Intent intent = new Intent(RegisterUserActivity.this, EventNavigationDrawer.class);
 //                            intent.putExtra("username", uname);
