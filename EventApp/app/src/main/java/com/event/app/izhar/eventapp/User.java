@@ -11,18 +11,20 @@ public class User {
     private String username;
     private String firstName;
     private String lastName;
+    private String password;
     private String email;
     private Boolean isHost;
     private Boolean isAdmin;
 
     //add password?
-    User(String username, String firstName, String lastName, String email, Boolean isHost, Boolean isAdmin){
+    User(String username, String password, String firstName, String lastName, String email){
         this.username = username;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.isHost = isHost;
-        this.isAdmin = isAdmin;
+//        this.isHost = isHost;
+//        this.isAdmin = isAdmin;
     }
 
     //getter-setters
@@ -57,20 +59,24 @@ public class User {
         this.email = email;
     }
 
-    public Boolean isHost(){
-        return isHost;
-    }
+    public String getPassword(){return email;}
 
-    public void setIsHost(Boolean isHost){
-        this.isHost = isHost;
-    }
+    public void setPassword(String email){this.email = email;}
 
-    public Boolean isAdmin(){
-        return isAdmin;
-    }
-
-    public void setIsAdmin (Boolean isAdmin){
-        this.isAdmin = isAdmin;
-    }
-    //end of getter-setter
+//    public Boolean isHost(){
+//        return isHost;
+//    }
+//
+//    public void setIsHost(Boolean isHost){
+//        this.isHost = isHost;
+//    }
+//
+//    public Boolean isAdmin(){
+//        return isAdmin;
+//    }
+//
+//    public void setIsAdmin (Boolean isAdmin){
+//        this.isAdmin = isAdmin;
+//    }
+//    //end of getter-setter
 }
