@@ -43,9 +43,11 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
             }
         });
 
-        String[] eventItem = {"wedding1", "wedding2", "wedding3", "birthday", "halloween party", "2017 New years Eve Party"};
+        String[] eventItem = {"wedding1", "wedding2", "wedding3",
+                "birthday", "halloween party", "2017 New years Eve Party"};
         ListView listView = (ListView) view.findViewById(R.id.event_listview);
         ArrayAdapter<String> eventAdaptor = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, eventItem);
+//        eventAdaptor = new EventListviewAdapter();
 
         listView.setAdapter(eventAdaptor);
 
