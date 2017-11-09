@@ -70,7 +70,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (!obj.getBoolean("error")) {
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-
                             finish();
                             startActivity(new Intent(getApplicationContext(), EventFragment.class));
                         } else

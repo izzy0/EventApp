@@ -1,6 +1,7 @@
 package com.event.app.izhar.eventapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -80,12 +81,12 @@ public class Gallery extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Snackbar.make(view, "Upload Your Photos", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-//                Fragment fragment = new CreateEvent();
-//                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.fragment_container, fragment);
-//                fragmentTransaction.commit();
+//                Snackbar.make(view, "Upload Your Photos", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), Camera.class);
+                getActivity().startActivity(intent);
             }
         });
 
