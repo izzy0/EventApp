@@ -8,6 +8,8 @@
     <!-- <uses-permission android:name="android.permission.READ_PROFILE" /> -->
     <!-- <uses-permission android:name="android.permission.READ_CONTACTS" /> -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--<uses-permission android:name="android.permission.CAMERA" />-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 <!--TODO clean up activities that are not needed ?-->
     <application
@@ -24,6 +26,7 @@
         </intent-filter>
         </activity>
         <activity android:name=".RegisterUserActivity" />
+        <activity android:name=".Camera" />
         <activity android:name=".AdminMemberOperations" />
         <activity android:name=".EventDetailsNavigationDrawer" />
         <activity android:name=".AccountDetailsNavigationDrawer" />
@@ -36,6 +39,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
       </activity>
+        <!--<provider-->
+            <!--android:name="android.support.v4.content.FileProvider"-->
+            <!--android:authorities="com.your.package.fileProvider"-->
+            <!--android:grantUriPermissions="true"-->
+            <!--android:exported="false">-->
+            <!--<meta-data-->
+                <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+                <!--android:resource="@string/save_file_location"/>-->
+        <!--</provider>-->
     </application>
-
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"></uses-permission>
 </manifest>
