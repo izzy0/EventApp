@@ -11,9 +11,9 @@ android {
         applicationId "com.event.app.izhar.eventapp"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 5
-        versionName '1.4'
+        versionName '1.5'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 6
     }
     useLibrary 'org.apache.http.legacy'
     buildTypes {
