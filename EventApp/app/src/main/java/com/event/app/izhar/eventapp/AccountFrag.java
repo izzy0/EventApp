@@ -26,7 +26,7 @@ public class AccountFrag extends Fragment implements CreateEvent.OnFragmentInter
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account, container, false);
 
-        isAdminSwitch = (Switch) view.findViewById(R.id.account_sadmin);
+//        isAdminSwitch = (Switch) view.findViewById(R.id.account_sadmin);
 
 
 

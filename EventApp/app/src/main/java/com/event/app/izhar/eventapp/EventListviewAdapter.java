@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -77,25 +78,28 @@ import java.util.List;
 //}
 
 
-class EventListviewAdapter extends ArrayAdapter<String>{
+class EventListviewAdapter extends ArrayAdapter<String> {
 
 
-    EventListviewAdapter(Context context, String[] eventItem) {
-        super(context, R.layout.event_listview_adapter, eventItem);
+    EventListviewAdapter(Context context, String[] events) {
+        super(context, R.layout.event_listview_adapter, events);
     }
+
+
 
     @NonNull
     @Override
-    public View getView(int position, View convertView,  ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater eventInflater = LayoutInflater.from(getContext());
         View eventListView = eventInflater.inflate(R.layout.event_listview_adapter, parent, false);
 
         String singleEventItem = getItem(position);
+//        String secondEventItem = getItem(position);
         TextView eventName = (TextView) eventListView.findViewById(R.id.tv_event_name_id);
-        TextView eventDate = (TextView) eventListView.findViewById(R.id.tv_date_id);
+//        TextView eventDate = (TextView) eventListView.findViewById(R.id.tv_date_id);
 
         eventName.setText(singleEventItem);
-        eventDate.setText(singleEventItem);
+//        eventDate.setText(secondEventItem);
         return eventListView;
     }
 }
