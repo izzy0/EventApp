@@ -14,8 +14,8 @@ android {
         versionCode 5
         versionName '1.4'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        useLibrary 'org.apache.http.legacy'
     }
-    useLibrary 'org.apache.http.legacy'
     buildTypes {
         release {
             minifyEnabled false
