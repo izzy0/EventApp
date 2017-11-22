@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.event.app.izhar.eventapp"
         minSdkVersion 21
@@ -37,4 +37,6 @@ dependencies {
     compile 'com.googlecode.json-simple:json-simple:1.1'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
     testCompile 'junit:junit:4.12'
+    compile files('libs/PhotoUtil.jar')
+
 }
