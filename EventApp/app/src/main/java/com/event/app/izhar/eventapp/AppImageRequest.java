@@ -1,6 +1,8 @@
 package com.event.app.izhar.eventapp;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
@@ -14,7 +16,8 @@ import java.util.Map;
 
 public class AppImageRequest extends StringRequest {
 
-    private static final String UPLOAD_REQUEST_URL = "https://cq7243tk.000webhostapp.com/upload.php";
+//    private static final String UPLOAD_REQUEST_URL = "https://cq7243tk.000webhostapp.com/upload.php";
+    private static final String UPLOAD_REQUEST_URL = "https://192.168.1.135/EventApp/upload.php";
     private Map<String, String> params;
 
     public AppImageRequest(String encodedImage, Response.Listener<String> listener) {
@@ -22,9 +25,8 @@ public class AppImageRequest extends StringRequest {
 
         params = new HashMap<>();
         params.put("image", encodedImage);
+
         Log.d("IMAGE ENCODE", encodedImage);
-
-
     }
 
     @Override

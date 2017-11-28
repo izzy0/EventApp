@@ -33,6 +33,9 @@ import com.kosalgeek.android.photoutil.GalleryPhoto;
 import com.kosalgeek.android.photoutil.ImageBase64;
 import com.kosalgeek.android.photoutil.ImageLoader;
 
+import net.gotev.uploadservice.MultipartUploadRequest;
+import net.gotev.uploadservice.UploadNotificationConfig;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,6 +44,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -50,10 +60,10 @@ public class Gallery extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+    private static final String UPLOAD_REQUEST_URL = "http://10.15.21.137/eventapp/upload.php";
     public static final int GALLERY_REQUEST = 100;
     public static final int REQUEST_CAMERA = 200;
 
-    private Context context;
     Uri imageUri;
     ImageView imageView;
     String photoPath;
@@ -76,6 +86,9 @@ public class Gallery extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
 
+        permissionsForGallery();
+        permissionsForCamera();
+
         cameraPhoto = new CameraPhoto(getContext());
         galleryPhoto = new GalleryPhoto(getContext());
 
@@ -85,7 +98,6 @@ public class Gallery extends Fragment {
         yourPicBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                permissionsForGallery();
                 startActivityForResult(galleryPhoto.openGalleryIntent(), GALLERY_REQUEST);
             }
         });
@@ -121,8 +133,8 @@ public class Gallery extends Fragment {
 //                startActivityForResult(cameraIntent,REQUEST_CAMERA);
 
                 try {
-                    permissionsForCamera();
-//TODO FIX CAMERA CRASH --- 
+
+//TODO FIX CAMERA CRASH ---
                     startActivityForResult(cameraPhoto.takePhotoIntent(), REQUEST_CAMERA);
                     imageUri = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID + ".provider",createImageFile());
 
@@ -139,6 +151,9 @@ public class Gallery extends Fragment {
 
             @Override
             public void onClick(View view) {
+
+                uploadImage();
+/**
                 try {
                     Bitmap bitmap = ImageLoader.init().from(selectedPhoto).requestSize(1024, 1024).getBitmap();
                     String encodeImage = ImageBase64.encode(bitmap);
@@ -151,12 +166,15 @@ public class Gallery extends Fragment {
                         @Override
                         public void onResponse(String response) {
                             try {
+
                                 JSONObject jsonResponse = new JSONObject(response);
                                 boolean phpResponse = jsonResponse.getBoolean("response");
-                                String stringPhpResponse = jsonResponse.getString("response");
-
-                                Toast.makeText(getContext(), stringPhpResponse,
-                                        Toast.LENGTH_LONG).show();
+                                //String stringPhpResponse = jsonResponse.getString("response");
+                                System.out.printf("response " + phpResponse);
+//                                Log.d("ECHO RESPONSE",phpResponse);
+//
+//                                Toast.makeText(getContext(), stringPhpResponse,
+//                                        Toast.LENGTH_LONG).show();
 
                                 if (phpResponse) {
                                     Toast.makeText(getContext(), "Success: uploaded Image!!",
@@ -169,6 +187,7 @@ public class Gallery extends Fragment {
                     };
 
                     AppImageRequest imageRequest = new AppImageRequest(encodeImage, responseListener);
+                    Toast.makeText(getContext(), "sending upload", Toast.LENGTH_SHORT).show();
                     System.out.println("parameters " + imageRequest.getParams());
                     RequestQueue queue = Volley.newRequestQueue(getActivity());
                     queue.add(imageRequest);
@@ -181,18 +200,59 @@ public class Gallery extends Fragment {
                     Toast.makeText(getContext(), "Error Uploading: " + e.toString(), Toast.LENGTH_SHORT).show();
 
                 }
-            }
+*/            }
         });
 
         return view;
     }
+/** http ok code not sending data or something
 
+ OkHttpClient client = new OkHttpClient();
+
+ RequestBody requestBody = new MultipartBody.Builder()
+ .setType(MultipartBody.FORM)
+ .addFormDataPart("image", path, RequestBody.create(MediaType.parse("jpeg/png"), createImageFile()))
+ .addFormDataPart("name", user)
+ .build();
+ Request request = new Request.Builder()
+ .url(UPLOAD_REQUEST_URL)
+ .post(requestBody)
+ .build();
+
+ Toast.makeText(getContext(),"generating request?", Toast.LENGTH_SHORT).show();
+
+ okhttp3.Response response = client.newCall(request).execute();
+ Log.d("EVENT RESPONSE", response.toString());
+
+ */
+    private void uploadImage() {
+        String user = "admim";
+//        String name;
+        String path = photoPath;
+
+        try{
+            String uploaddID = UUID.randomUUID().toString();
+
+            new MultipartUploadRequest(getContext(), uploaddID, UPLOAD_REQUEST_URL)
+                    .addParameter("name",user)
+                    .addFileToUpload(path,"image")
+//                    .setNotificationConfig(new UploadNotificationConfig())
+                    .setMaxRetries(3)
+                    .startUpload();
+            Toast.makeText(getContext(), "Image Uploaded: " + path, Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+/**used by camera*/
     private File createImageFile() throws IOException {
         String timeStamp = (new SimpleDateFormat("yyyyMMdd_HHmmss")).format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(imageFileName, ".jpg", storageDir);
         this.photoPath = image.getAbsolutePath();
+        Toast.makeText(getContext(), photoPath, Toast.LENGTH_SHORT).show();
+        Log.d("EVNET_CREATE_IMAGE_FILE", photoPath);
         return image;
     }
 
@@ -243,11 +303,11 @@ public class Gallery extends Fragment {
             if (requestCode == GALLERY_REQUEST) {
                 Toast.makeText(getContext(), "From Gallery", Toast.LENGTH_SHORT).show();
 
-//                imageUri = data.getData();
-                Uri uri = data.getData();
-                galleryPhoto.setPhotoUri(uri);
-                String photoPath = galleryPhoto.getPath();
-                selectedPhoto = photoPath;
+                imageUri = data.getData();
+                galleryPhoto.setPhotoUri(imageUri);
+                photoPath = galleryPhoto.getPath();
+                Toast.makeText(getContext(), photoPath, Toast.LENGTH_LONG).show();
+
                 try {
                     bitmap = ImageLoader.init().from(photoPath).requestSize(512, 512).getBitmap();
                     imageView.setImageBitmap(bitmap);
