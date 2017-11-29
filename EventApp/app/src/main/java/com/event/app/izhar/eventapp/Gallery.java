@@ -231,14 +231,15 @@ public class Gallery extends Fragment {
         String path = photoPath;
 
         try{
-            String uploaddID = UUID.randomUUID().toString();
+            String uploadID = UUID.randomUUID().toString();
 
-            new MultipartUploadRequest(getContext(), uploaddID, UPLOAD_REQUEST_URL)
+            new MultipartUploadRequest(getContext(), uploadID, UPLOAD_REQUEST_URL)
                     .addParameter("name",user)
                     .addFileToUpload(path,"image")
 //                    .setNotificationConfig(new UploadNotificationConfig())
                     .setMaxRetries(3)
                     .startUpload();
+
             Toast.makeText(getContext(), "Image Uploaded: " + path, Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
