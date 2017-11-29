@@ -129,102 +129,36 @@ public class Gallery extends Fragment {
 //                intent.setClass(getActivity(), Camera.class);
 //                getActivity().startActivity(intent);
 
-//                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                startActivityForResult(cameraIntent,REQUEST_CAMERA);
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent,REQUEST_CAMERA);
 
-                try {
 
-//TODO FIX CAMERA CRASH ---
-                    startActivityForResult(cameraPhoto.takePhotoIntent(), REQUEST_CAMERA);
-                    imageUri = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID + ".provider",createImageFile());
 
-                    cameraPhoto.addToGallery();
-                } catch (IOException e) {
-                    Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
-                }
+//                try {
+//
+////TODO FIX CAMERA CRASH ---
+//                    startActivityForResult(cameraPhoto.takePhotoIntent(), REQUEST_CAMERA);
+//                    imageUri = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID + ".provider",createImageFile());
+//
+//                    cameraPhoto.addToGallery();
+//                } catch (IOException e) {
+//                    Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 
-//TODO upload photos here
         FloatingActionButton uploadFab = (FloatingActionButton) view.findViewById(R.id.gallery_upload_fab_left);
         uploadFab.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-
                 uploadImage();
-/**
-                try {
-                    Bitmap bitmap = ImageLoader.init().from(selectedPhoto).requestSize(1024, 1024).getBitmap();
-                    String encodeImage = ImageBase64.encode(bitmap);
-//                    Log.d("IMAGE ENCODE", encodeImage);
-//                    Toast.makeText(getContext(), "Uploaded Image! ", Toast.LENGTH_SHORT).show();
-
-
-                    Response.Listener<String> responseListener = new Response.Listener<String>() {
-
-                        @Override
-                        public void onResponse(String response) {
-                            try {
-
-                                JSONObject jsonResponse = new JSONObject(response);
-                                boolean phpResponse = jsonResponse.getBoolean("response");
-                                //String stringPhpResponse = jsonResponse.getString("response");
-                                System.out.printf("response " + phpResponse);
-//                                Log.d("ECHO RESPONSE",phpResponse);
-//
-//                                Toast.makeText(getContext(), stringPhpResponse,
-//                                        Toast.LENGTH_LONG).show();
-
-                                if (phpResponse) {
-                                    Toast.makeText(getContext(), "Success: uploaded Image!!",
-                                            Toast.LENGTH_LONG).show();
-                                }
-                            } catch (JSONException e1) {
-                                e1.printStackTrace();
-                            }
-                        }
-                    };
-
-                    AppImageRequest imageRequest = new AppImageRequest(encodeImage, responseListener);
-                    Toast.makeText(getContext(), "sending upload", Toast.LENGTH_SHORT).show();
-                    System.out.println("parameters " + imageRequest.getParams());
-                    RequestQueue queue = Volley.newRequestQueue(getActivity());
-                    queue.add(imageRequest);
-
-
-                } catch (
-                        FileNotFoundException e)
-
-                {
-                    Toast.makeText(getContext(), "Error Uploading: " + e.toString(), Toast.LENGTH_SHORT).show();
-
-                }
-*/            }
+            }
         });
 
         return view;
     }
-/** http ok code not sending data or something
 
- OkHttpClient client = new OkHttpClient();
-
- RequestBody requestBody = new MultipartBody.Builder()
- .setType(MultipartBody.FORM)
- .addFormDataPart("image", path, RequestBody.create(MediaType.parse("jpeg/png"), createImageFile()))
- .addFormDataPart("name", user)
- .build();
- Request request = new Request.Builder()
- .url(UPLOAD_REQUEST_URL)
- .post(requestBody)
- .build();
-
- Toast.makeText(getContext(),"generating request?", Toast.LENGTH_SHORT).show();
-
- okhttp3.Response response = client.newCall(request).execute();
- Log.d("EVENT RESPONSE", response.toString());
-
- */
     private void uploadImage() {
         String user = "admim";
 //        String name;
@@ -322,9 +256,13 @@ public class Gallery extends Fragment {
 
             String photoPath = cameraPhoto.getPhotoPath();
             try {
+            Bitmap bitmapSave = (Bitmap) data.getExtras().get("data");
                 bitmap = ImageLoader.init().from(photoPath).requestSize(512, 512).getBitmap();
                 imageView.setImageBitmap(bitmap);
-//            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+
+                Camera camera = new Camera();
+                camera.savePhoto(bitmapSave);
+
             } catch (Exception e) {
                 Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
             }
