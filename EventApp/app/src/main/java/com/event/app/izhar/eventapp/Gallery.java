@@ -269,7 +269,7 @@ public class Gallery extends Fragment {
 
         File file = new File(dir, pictureName);
         photoPath = file.getAbsolutePath();
-//        Toast.makeText(getContext(), photoPath, Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), photoPath, Toast.LENGTH_LONG).show();
 
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);

@@ -24,7 +24,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
-public class RegisterUserActivity extends AppCompatActivity implements AsyncResponse, View.OnClickListener {
+public class RegisterUserActivity extends AppCompatActivity implements View.OnClickListener {
 
     //    private EditText username, password, email, firstName, lastName;
     private Button newUser;
@@ -64,49 +64,55 @@ public class RegisterUserActivity extends AppCompatActivity implements AsyncResp
         parser.SerializeFile(user);
         Log.i("Parser", parser.toString());
 
-//        String jsonObjectString = gson.toJson(user);
-
+        if(fname.isEmpty() || lname.isEmpty() || uname.isEmpty() || passw.isEmpty() || emailString.isEmpty()){
             Response.Listener<String> responseListener = new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try {
                         Log.i("tagconvertstr", "["+response+"]");
+
                         JSONObject jsonObject = new JSONObject(response);
                         boolean success = jsonObject.getBoolean("success");
                         System.out.println("boolean json"+success);
 
-
-                        // todo call proccessFinished here
-                        if(success){
-                            Intent intent = new Intent(RegisterUserActivity.this, EventNavigationDrawer.class);
-//                            intent.putExtra("username", uname);
-                            startActivity(intent);
-                            finish();
-
-                        }else{
-                            Toast.makeText(getApplicationContext(), "Username or email already taken ;(",
-                                    Toast.LENGTH_SHORT).show();
-                        }
+                        processFinish(success);
+//                        if(success){
+//                            Intent intent = new Intent(RegisterUserActivity.this, EventNavigationDrawer.class);
+////                            intent.putExtra("username", uname);
+//                            startActivity(intent);
+//                            finish();
+//
+//                        }else{
+//                            Toast.makeText(getApplicationContext(), "Username or email already taken ;(",
+//                                    Toast.LENGTH_SHORT).show();
+//                        }
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             };
+
             RegisterRequest request = new RegisterRequest(fname, lname, uname, passw, emailString, responseListener);
             System.out.println("parameters "+request.getParams());
             Log.i("THE Register LOG","["+ request.getParams()+"]");
             RequestQueue queue = Volley.newRequestQueue(RegisterUserActivity.this);
             queue.add(request);
+
+        }else{
+            Toast.makeText(this, "Please fill out all the fields", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    @Override
-    public void processFinish(String result) {
-        if (result.equals("success")) {
+    public void processFinish(boolean result) {
+        if (result) {
             Toast.makeText(this, "Register Successful!",
                     Toast.LENGTH_LONG).show();
             Intent next = new Intent(this, EventNavigationDrawer.class);
             startActivity(next);
+        }else{
+            Toast.makeText(getApplicationContext(), "Username or email already taken ;(",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 }
