@@ -129,7 +129,6 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
                 });
 
                 AppController.getInstance().addToRequestQueue(eventRequest);
-
             }
         });
 //        return view;
@@ -140,47 +139,47 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
 
 
 //
-        String[] eventItem = {"Wedding", "Event", "Event",
-                "Event", "Event", "Event"};
-        ListView listView = (ListView) view.findViewById(R.id.event_listview);
-        ArrayAdapter<String> eventAdaptor = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, eventItem);
-        listView.setAdapter(eventAdaptor);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = null;
-                switch(i){
-                    case 0:
-                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-                        startActivity(intent);
-                        break;
-                    case 1:
-                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-                        startActivity(intent);
-                        break;
-                    case 2:
-                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-                        startActivity(intent);
-                        break;
-                    case 3:
-                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-                        startActivity(intent);
-                        break;
-                    case 4:
-                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-                        startActivity(intent);
-                        break;
-                    case 5:
-                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-                        startActivity(intent);
-                        break;
-                    default:
-                    {
-                        break;
-                    }
-                }
-            }
-        });
+//        String[] eventItem = {"Wedding", "Event", "Event",
+//                "Event", "Event", "Event"};
+//        ListView listView = (ListView) view.findViewById(R.id.event_listview);
+//        ArrayAdapter<String> eventAdaptor = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, eventItem);
+//        listView.setAdapter(eventAdaptor);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent intent = null;
+//                switch(i){
+//                    case 0:
+//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
+//                        startActivity(intent);
+//                        break;
+//                    case 1:
+//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
+//                        startActivity(intent);
+//                        break;
+//                    case 2:
+//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
+//                        startActivity(intent);
+//                        break;
+//                    case 3:
+//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
+//                        startActivity(intent);
+//                        break;
+//                    case 4:
+//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
+//                        startActivity(intent);
+//                        break;
+//                    case 5:
+//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
+//                        startActivity(intent);
+//                        break;
+//                    default:
+//                    {
+//                        break;
+//                    }
+//                }
+//            }
+//        });
         return view;
     }
 
