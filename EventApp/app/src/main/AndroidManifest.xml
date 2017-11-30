@@ -13,6 +13,7 @@
 
 <!--TODO clean up activities that are not needed ?-->
     <application
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"

@@ -16,7 +16,9 @@
             android:layout_alignParentTop="true"
             android:layout_margin="5dp"
             android:text="TextView"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="@dimen/event"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tv_date_id"
@@ -26,6 +28,7 @@
             android:layout_below="@+id/tv_event_name_id"
             android:layout_margin="5dp"
             android:text="TextView"
+            android:textSize="@dimen/date"
             android:textColor="@color/white"/>
     </RelativeLayout>
 </LinearLayout>

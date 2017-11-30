@@ -11,11 +11,11 @@ android {
         applicationId "com.event.app.izhar.eventapp"
         minSdkVersion 21
         targetSdkVersion 24
-        versionName '1.5'
+        versionCode 5
+        versionName '1.4'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        versionCode 6
+        useLibrary 'org.apache.http.legacy'
     }
-    useLibrary 'org.apache.http.legacy'
     buildTypes {
         release {
             minifyEnabled false

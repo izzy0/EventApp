@@ -1,6 +1,7 @@
 package com.event.app.izhar.eventapp;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -14,8 +15,10 @@ public class Event {
     private String eventDate;
     private String eventHost;
     private String eventName;
+    private String eventLocation;
     private Time startTime;
     private Time endTime;
+
 
 //    public Event(Date eventDate, String eventHost, String eventName){
 //        this.eventDate = eventDate;
@@ -28,10 +31,28 @@ public class Event {
         this.eventName = eventName;
     }
 
-//    public Date getEventDate(){
+    public Event(String name, String date){
+        this.eventName = name;
+        this.eventDate = date;
+    }
+
+    public Event() {
+    }
+
+    public void setEventName(String name){
+        this.eventName = name;
+    }
+
+    public void setEventDate(String date){
+        this.eventDate = date;
+    }
+
+//    public String getEventDate(){
 //        return eventDate;
 //    }
-    public String getEventDate(){ return eventDate;}
+    public String getEventDate(){
+        return eventDate;
+    }
 
     public String getEventHost(){
         return eventHost;
