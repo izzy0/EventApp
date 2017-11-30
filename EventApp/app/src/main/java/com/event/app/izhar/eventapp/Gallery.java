@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -14,7 +15,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,44 +23,29 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.*;
-import com.android.volley.toolbox.ImageRequest;
 import com.kosalgeek.android.photoutil.CameraPhoto;
 import com.kosalgeek.android.photoutil.GalleryPhoto;
-import com.kosalgeek.android.photoutil.ImageBase64;
 import com.kosalgeek.android.photoutil.ImageLoader;
 
 import net.gotev.uploadservice.MultipartUploadRequest;
-import net.gotev.uploadservice.UploadNotificationConfig;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-
 import static android.app.Activity.RESULT_OK;
 
-// TODO change gallery to activity NOT FRAGMENT?
 
 public class Gallery extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    private static final String UPLOAD_REQUEST_URL = "http://10.15.21.137/eventapp/upload.php";
+    //    private static final String UPLOAD_REQUEST_URL = "http://10.15.21.137/eventapp/upload.php";
+    private static final String UPLOAD_REQUEST_URL = "https://cq7243tk.000webhostapp.com/upload.php";
     public static final int GALLERY_REQUEST = 100;
     public static final int REQUEST_CAMERA = 200;
 
@@ -70,7 +55,7 @@ public class Gallery extends Fragment {
     Bitmap bitmap = null;
     GalleryPhoto galleryPhoto;
     CameraPhoto cameraPhoto;
-    String selectedPhoto;
+    String folderName = "/EventApp";
 
     public Gallery() {
     }
@@ -125,25 +110,9 @@ public class Gallery extends Fragment {
 
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent();
-//                intent.setClass(getActivity(), Camera.class);
-//                getActivity().startActivity(intent);
 
                 Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent,REQUEST_CAMERA);
-
-
-
-//                try {
-//
-////TODO FIX CAMERA CRASH ---
-//                    startActivityForResult(cameraPhoto.takePhotoIntent(), REQUEST_CAMERA);
-//                    imageUri = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID + ".provider",createImageFile());
-//
-//                    cameraPhoto.addToGallery();
-//                } catch (IOException e) {
-//                    Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
-//                }
+                startActivityForResult(cameraIntent, REQUEST_CAMERA);
             }
         });
 
@@ -161,34 +130,24 @@ public class Gallery extends Fragment {
 
     private void uploadImage() {
         String user = "admim";
-//        String name;
         String path = photoPath;
 
-        try{
+        try {
             String uploadID = UUID.randomUUID().toString();
 
             new MultipartUploadRequest(getContext(), uploadID, UPLOAD_REQUEST_URL)
-                    .addParameter("name",user)
-                    .addFileToUpload(path,"image")
+                    .addParameter("name", user)
+                    .addFileToUpload(path, "image")
 //                    .setNotificationConfig(new UploadNotificationConfig())
                     .setMaxRetries(3)
                     .startUpload();
 
-            Toast.makeText(getContext(), "Image Uploaded: " + path, Toast.LENGTH_SHORT).show();
-        }catch (Exception e){
+//            Toast.makeText(getContext(), "Image Uploaded: " + path, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Image Uploaded", Toast.LENGTH_SHORT).show();
+            imageView.setImageBitmap(null);
+        } catch (Exception e) {
             Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-    }
-/**used by camera*/
-    private File createImageFile() throws IOException {
-        String timeStamp = (new SimpleDateFormat("yyyyMMdd_HHmmss")).format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
-        this.photoPath = image.getAbsolutePath();
-        Toast.makeText(getContext(), photoPath, Toast.LENGTH_SHORT).show();
-        Log.d("EVNET_CREATE_IMAGE_FILE", photoPath);
-        return image;
     }
 
     public void permissionsForGallery() {
@@ -221,27 +180,21 @@ public class Gallery extends Fragment {
         }
     }
 
-    //not used// but opens native gallery
-    private void openGallery() {
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, GALLERY_REQUEST);
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Toast.makeText(getContext(), "To Results resultCode: " + resultCode +
-                "requestCode: " + requestCode, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), "To Results resultCode: " + resultCode +
+//                "requestCode: " + requestCode, Toast.LENGTH_SHORT).show();
         if (resultCode == RESULT_OK) {
 
             if (requestCode == GALLERY_REQUEST) {
-                Toast.makeText(getContext(), "From Gallery", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "From Gallery", Toast.LENGTH_SHORT).show();
 
                 imageUri = data.getData();
                 galleryPhoto.setPhotoUri(imageUri);
                 photoPath = galleryPhoto.getPath();
-                Toast.makeText(getContext(), photoPath, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getContext(), photoPath, Toast.LENGTH_LONG).show();
 
                 try {
                     bitmap = ImageLoader.init().from(photoPath).requestSize(512, 512).getBitmap();
@@ -249,22 +202,18 @@ public class Gallery extends Fragment {
                 } catch (Exception e) {
                     Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
                 }
-            }
 
-        } else if (requestCode == REQUEST_CAMERA) {
-            Toast.makeText(getContext(), "From Camera", Toast.LENGTH_SHORT).show();
 
-            String photoPath = cameraPhoto.getPhotoPath();
-            try {
-            Bitmap bitmapSave = (Bitmap) data.getExtras().get("data");
-                bitmap = ImageLoader.init().from(photoPath).requestSize(512, 512).getBitmap();
-                imageView.setImageBitmap(bitmap);
+            } else if (requestCode == REQUEST_CAMERA) {
+//                Toast.makeText(getContext(), "From Camera", Toast.LENGTH_SHORT).show();
 
-                Camera camera = new Camera();
-                camera.savePhoto(bitmapSave);
+                try {
+                    Bitmap bitmapSave = (Bitmap) data.getExtras().get("data");
+                    savePhoto(bitmapSave);
 
-            } catch (Exception e) {
-                Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
@@ -296,6 +245,63 @@ public class Gallery extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    private String getPictureName() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        String timeStamp = sdf.format(new Date());
+        return "EventApp" + timeStamp + ".jpg";
+    }
+
+    public void savePhoto(Bitmap bitmap) {
+
+        imageView.setImageBitmap(bitmap);
+
+        String pitureDirectory = Environment.getExternalStorageDirectory().getAbsoluteFile() + folderName;
+        String pictureName = getPictureName();
+
+        File dir = new File(pitureDirectory);
+
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        File file = new File(dir, pictureName);
+        photoPath = file.getAbsolutePath();
+//        Toast.makeText(getContext(), photoPath, Toast.LENGTH_LONG).show();
+
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 85, fileOutputStream);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+
+            MakeSureFileWasCreated(file);
+
+            //make into method call
+            Toast.makeText(getContext(), "Picture saved to Gallery", Toast.LENGTH_SHORT).show();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void MakeSureFileWasCreated(File file) {
+        MediaScannerConnection.scanFile(
+                getContext(),
+                new String[]{file.toString()},
+                null,
+                new MediaScannerConnection.OnScanCompletedListener() {
+                    @Override
+                    public void onScanCompleted(String path, Uri uri) {
+                        Log.e("ExternalStorage", "Scanned" + path + ":");
+                        Log.e("ExternalStorage", "-> uri=" + uri);
+                    }
+                }
+        );
     }
 
 }

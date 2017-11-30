@@ -34,22 +34,22 @@ public class Camera extends AppCompatActivity {
 
     String folderName = "/EventApp";
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.camera);
-//
-//        cameraBtn = (Button) findViewById(R.id.cameraButton);
-//        cameraImageView = (ImageView) findViewById(R.id.cameraImageView);
-//
-//        cameraBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                startActivityForResult(cameraIntent,0);
-//            }
-//        });
-//    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.camera);
+
+        cameraBtn = (Button) findViewById(R.id.cameraButton);
+        cameraImageView = (ImageView) findViewById(R.id.cameraImageView);
+
+        cameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent,0);
+            }
+        });
+    }
 
     private String getPictureName() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
@@ -58,7 +58,7 @@ public class Camera extends AppCompatActivity {
     }
     public void savePhoto(Bitmap bitmap){
 
-//        cameraImageView.setImageBitmap(bitmap);
+        cameraImageView.setImageBitmap(bitmap);
 
         String pitureDirectory = Environment.getExternalStorageDirectory().getAbsoluteFile() + folderName;
         String pictureName = getPictureName();
@@ -87,13 +87,13 @@ public class Camera extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-//        savePhoto(bitmap);
-//
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+        savePhoto(bitmap);
+
+    }
 
     private  void MakeSureFileWasCreated(File file){
         MediaScannerConnection.scanFile(
