@@ -56,11 +56,8 @@ public class Camera extends AppCompatActivity {
         String timeStamp = sdf.format(new Date());
         return "EventApp" + timeStamp +".jpg";
     }
+    public void savePhoto(Bitmap bitmap){
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
         cameraImageView.setImageBitmap(bitmap);
 
         String pitureDirectory = Environment.getExternalStorageDirectory().getAbsoluteFile() + folderName;
@@ -89,9 +86,13 @@ public class Camera extends AppCompatActivity {
         }catch (IOException e) {
             e.printStackTrace();
         }
-//                File imageFile = new File(pitureDirectory, pictureName);
-//                Uri pictureUri = Uri.fromFile(imageFile);
-//                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+        savePhoto(bitmap);
+
     }
 
     private  void MakeSureFileWasCreated(File file){
