@@ -14,7 +14,7 @@ import static android.content.ContentValues.TAG;
 
 public class LoginRequest extends StringRequest {
 
-    private static final String LOGIN_REQUEST_URL = "http://cq7243tk.000webhostapp.com/login.php";
+    private static final String LOGIN_REQUEST_URL = "http://cq7243tk.000webhostapp.com/logins.php";
     private Map<String, String> params;
 
     public LoginRequest( String username, String password,
