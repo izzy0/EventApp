@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventapp;
+package com.event.app.izhar.eventappbeta;
 
 /**
  * Created by Izhar on 10/7/2017.

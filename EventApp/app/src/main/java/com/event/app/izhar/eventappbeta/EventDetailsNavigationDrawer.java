@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventapp;
+package com.event.app.izhar.eventappbeta;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,12 +12,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
-//this is the user accounts activity
-public class AccountDetailsNavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        CreateEvent.OnFragmentInteractionListener, Gallery.OnFragmentInteractionListener {
+//this is the gallery view
+public class EventDetailsNavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        Gallery.OnFragmentInteractionListener{
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
@@ -28,9 +27,10 @@ public class AccountDetailsNavigationDrawer extends AppCompatActivity implements
         setContentView(R.layout.activity_navigation_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        //TODO set activity home as home
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-        tx.replace(R.id.fragment_container, new AccountFrag());
+        //change to starting screen fragment
+        tx.replace(R.id.fragment_container, new Gallery());
         tx.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -42,16 +42,6 @@ public class AccountDetailsNavigationDrawer extends AppCompatActivity implements
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-
-    //TODO hides menu buttons
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//
-//        inflater.inflate(R.menu.menu, menu);
-//        MenuItem item = menu.findItem(R.id.action_next);
-//        item.setVisible(false);   //hide it
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
 
     @Override
     public void onBackPressed() {
@@ -87,23 +77,27 @@ public class AccountDetailsNavigationDrawer extends AppCompatActivity implements
 
     private void DisplaySelectedScreen(int id) {
         Fragment fragment = null;
-        //TODO add the rest of the fragments add subscription , settings
+        //TODO add the rest of the fragments
         switch (id) {
             case R.id.view_gallery:
-                Intent eventDetailsIntent = new Intent(this, EventDetailsNavigationDrawer.class);
-                startActivity(eventDetailsIntent);
-            case R.id.nav_account:
-                fragment = new AccountFrag();
+                fragment = new Gallery();
+//                Intent eventDetailsIntent = new Intent(this, EventDetailsNavigationDrawer.class);
+//                startActivity(eventDetailsIntent);
                 break;
+            case R.id.nav_account:
+                Intent accountDetailsIntent = new Intent(this, AccountDetailsNavigationDrawer.class);
+                startActivity(accountDetailsIntent);
             case R.id.events:
+//                fragment = new EventActivity();
                 Intent eventIntent = new Intent(this, EventNavigationDrawer.class);
                 startActivity(eventIntent);
+                break;
             case R.id.nav_login:
-                Intent intent = new Intent(this, LoginTwoActivity.class);
-                startActivity(intent);
+                Intent loginIntent = new Intent(this, LoginTwoActivity.class);
+                startActivity(loginIntent);
             case R.id.nav_register:
-                Intent intent1 = new Intent(this, RegisterUserActivity.class);
-                startActivity(intent1);
+                Intent registerUserIntent = new Intent(this, RegisterUserActivity.class);
+                startActivity(registerUserIntent);
         }
 
         if (fragment != null) {

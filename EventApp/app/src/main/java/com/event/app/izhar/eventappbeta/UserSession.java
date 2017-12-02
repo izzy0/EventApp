@@ -1,7 +1,6 @@
-package com.event.app.izhar.eventapp;
+package com.event.app.izhar.eventappbeta;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 
 /**

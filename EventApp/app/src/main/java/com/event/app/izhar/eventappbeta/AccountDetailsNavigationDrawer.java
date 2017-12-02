@@ -1,11 +1,11 @@
-package com.event.app.izhar.eventapp;
+package com.event.app.izhar.eventappbeta;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,9 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-//this is the main view
-public class EventNavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        CreateEvent.OnFragmentInteractionListener, Gallery.OnFragmentInteractionListener{
+
+//this is the user accounts activity
+public class AccountDetailsNavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        CreateEvent.OnFragmentInteractionListener, Gallery.OnFragmentInteractionListener {
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
@@ -28,7 +29,7 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
         setSupportActionBar(toolbar);
 
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-        tx.replace(R.id.fragment_container, new EventFragment());
+        tx.replace(R.id.fragment_container, new AccountFrag());
         tx.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -40,6 +41,16 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    //TODO hides menu buttons
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//
+//        inflater.inflate(R.menu.menu, menu);
+//        MenuItem item = menu.findItem(R.id.action_next);
+//        item.setVisible(false);   //hide it
+//        super.onCreateOptionsMenu(menu, inflater);
+//    }
 
     @Override
     public void onBackPressed() {
@@ -65,7 +76,6 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement UNUSED
         //noinspection SimplifiableIfStatement
 //        if (id == R.id.action_settings) {
 //            return true;
@@ -76,22 +86,17 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
 
     private void DisplaySelectedScreen(int id) {
         Fragment fragment = null;
-        //TODO add the rest of the fragments
+        //TODO add the rest of the fragments add subscription , settings
         switch (id) {
             case R.id.view_gallery:
-//                fragment = new Gallery();
                 Intent eventDetailsIntent = new Intent(this, EventDetailsNavigationDrawer.class);
                 startActivity(eventDetailsIntent);
-                break;
             case R.id.nav_account:
-                Intent accountDetailsIntent = new Intent(this, AccountDetailsNavigationDrawer.class);
-                startActivity(accountDetailsIntent);
-            case R.id.create_event:
-                fragment = new CreateEvent();
+                fragment = new AccountFrag();
                 break;
             case R.id.events:
-                fragment = new EventFragment();
-                break;
+                Intent eventIntent = new Intent(this, EventNavigationDrawer.class);
+                startActivity(eventIntent);
             case R.id.nav_login:
                 Intent intent = new Intent(this, LoginTwoActivity.class);
                 startActivity(intent);

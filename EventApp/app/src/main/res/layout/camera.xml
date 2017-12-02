@@ -6,7 +6,7 @@
     android:weightSum="10"
     android:id="@+id/camera"
     android:layout_alignParentBottom="true"
-    tools:context="com.event.app.izhar.eventapp.Gallery"
+    tools:context="com.event.app.izhar.eventappbeta.Gallery"
     android:orientation="vertical">
 
 

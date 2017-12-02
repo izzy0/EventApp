@@ -4,11 +4,11 @@ android {
     compileSdkVersion 24
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.event.app.izhar.eventapp"
-        minSdkVersion 21
+        applicationId "com.event.app.izhar.eventappbeta"
+        minSdkVersion 18
         targetSdkVersion 24
         versionCode 5
-        versionName '1.4'
+        versionName '1.0.5'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     useLibrary 'org.apache.http.legacy'
@@ -42,9 +42,8 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.googlecode.json-simple:json-simple:1.1'
-    compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+//    compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
     compile 'net.gotev:uploadservice:3.4.1'
     testCompile 'junit:junit:4.12'
     compile files('libs/PhotoUtil.jar')
-
 }

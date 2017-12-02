@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventapp;
+package com.event.app.izhar.eventappbeta;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent"
-    tools:context="com.event.app.izhar.eventapp.RegisterUserActivity">
+    tools:context="com.event.app.izhar.eventappbeta.RegisterUserActivity">
 
     <EditText
         android:id="@+id/create_username_id_textfield"

@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventapp;
+package com.event.app.izhar.eventappbeta;
 
 import android.Manifest;
 import android.content.Context;
@@ -71,8 +71,8 @@ public class Gallery extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
 
-        permissionsForGallery();
-        permissionsForCamera();
+        permissions();
+//        permissionsForCamera();
 
         cameraPhoto = new CameraPhoto(getContext());
         galleryPhoto = new GalleryPhoto(getContext());
@@ -150,7 +150,7 @@ public class Gallery extends Fragment {
         }
     }
 
-    public void permissionsForGallery() {
+    public void permissions() {
         if (ContextCompat.checkSelfPermission(getActivity(),
                 Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -160,25 +160,12 @@ public class Gallery extends Fragment {
 
             } else {
                 ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 120);
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                                        Manifest.permission.CAMERA}, 120);
             }
         }
     }
 
-    public void permissionsForCamera() {
-        if (ContextCompat.checkSelfPermission(getActivity(),
-                Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
-                    Manifest.permission.CAMERA)) {
-
-            } else {
-                ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{Manifest.permission.CAMERA}, 250);
-            }
-        }
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -269,7 +256,7 @@ public class Gallery extends Fragment {
 
         File file = new File(dir, pictureName);
         photoPath = file.getAbsolutePath();
-        Toast.makeText(getContext(), photoPath, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getContext(), photoPath, Toast.LENGTH_LONG).show();
 
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);

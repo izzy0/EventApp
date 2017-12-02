@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventapp;
+package com.event.app.izhar.eventappbeta;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,8 +20,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static android.R.attr.path;
 
 /**
  * Created by Izhar on 11/8/2017.
