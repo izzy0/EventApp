@@ -1,9 +1,8 @@
-package com.event.app.izhar.eventapp;
+package com.event.app.izhar.eventappbeta;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.JsonWriter;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,17 +13,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.*;
-import com.kosalgeek.asynctask.AsyncResponse;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class RegisterUserActivity extends AppCompatActivity implements AsyncResponse, View.OnClickListener {
+public class RegisterUserActivity extends AppCompatActivity implements View.OnClickListener {
 
     //    private EditText username, password, email, firstName, lastName;
     private Button newUser;
@@ -53,10 +49,10 @@ public class RegisterUserActivity extends AppCompatActivity implements AsyncResp
     }
 
     public void onClick(View v) {
-        final String fname = firstName.getText().toString();
-        final String lname = lastName.getText().toString();
         final String uname = username.getText().toString();
         final String passw = password.getText().toString();
+        final String fname = firstName.getText().toString();
+        final String lname = lastName.getText().toString();
         final String emailString = email.getText().toString();
 
         User user = new User(uname, passw, fname, lname, emailString);
@@ -64,52 +60,68 @@ public class RegisterUserActivity extends AppCompatActivity implements AsyncResp
         parser.SerializeFile(user);
         Log.i("Parser", parser.toString());
 
-//        String jsonObjectString = gson.toJson(user);
-
+        if(validateFields(uname, passw, fname, lname, emailString)){
             Response.Listener<String> responseListener = new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try {
                         Log.i("tagconvertstr", "["+response+"]");
+
                         JSONObject jsonObject = new JSONObject(response);
                         boolean success = jsonObject.getBoolean("success");
                         System.out.println("boolean json"+success);
 
-
-                        // todo call proccessFinished here
-                        if(success){
-                            Intent intent = new Intent(RegisterUserActivity.this, EventNavigationDrawer.class);
-//                            intent.putExtra("username", uname);
-                            startActivity(intent);
-                            finish();
-
-                            Toast.makeText(getApplicationContext(), "User successfully registered!",
-                                    Toast.LENGTH_LONG).show();
-
-                        }else{
-                            Toast.makeText(getApplicationContext(), "Username or email already taken ;(",
-                                    Toast.LENGTH_SHORT).show();
-                        }
+                        processFinish(success);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             };
+
             RegisterRequest request = new RegisterRequest(fname, lname, uname, passw, emailString, responseListener);
             System.out.println("parameters "+request.getParams());
             Log.i("THE Register LOG","["+ request.getParams()+"]");
             RequestQueue queue = Volley.newRequestQueue(RegisterUserActivity.this);
             queue.add(request);
+
+        }
     }
 
-    @Override
-    public void processFinish(String result) {
-        if (result.equals("success")) {
+    private boolean validateFields(String uname, String pass, String fname, String lname, String email ){
+        if(!(uname.isEmpty() || pass.isEmpty() || fname.isEmpty() || lname.isEmpty() || email.isEmpty()) ){
+            if(pass.length() < 6){
+                Toast.makeText(this, "Password has to be over 6 character", Toast.LENGTH_SHORT).show();
+            }
+            if(!isEmailValid(email)){
+                Toast.makeText(this, "Enter a valid email", Toast.LENGTH_SHORT).show();
+            }
+            if(isEmailValid(email) && pass.length() > 6){
+                return true;
+            }
+            return false;
+        }else{
+            Toast.makeText(this, "Please fill out all the fields", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+    public static boolean isEmailValid(String email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    public void processFinish(boolean result) {
+        if (result) {
             Toast.makeText(this, "Register Successful!",
                     Toast.LENGTH_LONG).show();
             Intent next = new Intent(this, EventNavigationDrawer.class);
             startActivity(next);
+        }else{
+            Toast.makeText(getApplicationContext(), "Username or email already taken ;(",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 }

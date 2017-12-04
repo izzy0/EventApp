@@ -1,17 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        Khannaroth {
-        }
-    }
     compileSdkVersion 24
+    buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.event.app.izhar.eventapp"
-        minSdkVersion 21
+        applicationId "com.event.app.izhar.eventappbeta"
+        minSdkVersion 18
         targetSdkVersion 24
         versionCode 5
-        versionName '1.4'
+        versionName '1.0.5'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         useLibrary 'org.apache.http.legacy'
     }
@@ -23,6 +20,12 @@ android {
     }
     productFlavors {
     }
+    configurations.all {
+        resolutionStrategy {
+            force 'com.android.support:support-v4:24.+'
+            force 'com.android.support:appcompat-v7:24.+'
+        }
+    }
 }
 
 dependencies {
@@ -30,6 +33,9 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.squareup.okhttp3:okhttp:3.9.1'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     compile 'com.android.support:recyclerview-v7:24.2.1'
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.1.0-beta3'
@@ -39,6 +45,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.googlecode.json-simple:json-simple:1.1'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'net.gotev:uploadservice:3.4.1'
     testCompile 'junit:junit:4.12'
+    compile files('libs/PhotoUtil.jar')
 }

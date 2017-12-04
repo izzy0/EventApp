@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventapp;
+package com.event.app.izhar.eventappbeta;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,8 +20,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static android.R.attr.path;
 
 /**
  * Created by Izhar on 11/8/2017.
@@ -56,11 +54,8 @@ public class Camera extends AppCompatActivity {
         String timeStamp = sdf.format(new Date());
         return "EventApp" + timeStamp +".jpg";
     }
+    public void savePhoto(Bitmap bitmap){
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
         cameraImageView.setImageBitmap(bitmap);
 
         String pitureDirectory = Environment.getExternalStorageDirectory().getAbsoluteFile() + folderName;
@@ -89,9 +84,13 @@ public class Camera extends AppCompatActivity {
         }catch (IOException e) {
             e.printStackTrace();
         }
-//                File imageFile = new File(pitureDirectory, pictureName);
-//                Uri pictureUri = Uri.fromFile(imageFile);
-//                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+        savePhoto(bitmap);
+
     }
 
     private  void MakeSureFileWasCreated(File file){
