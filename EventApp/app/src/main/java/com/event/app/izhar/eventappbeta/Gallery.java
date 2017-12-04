@@ -72,7 +72,6 @@ public class Gallery extends Fragment {
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
 
         permissions();
-//        permissionsForCamera();
 
         cameraPhoto = new CameraPhoto(getContext());
         galleryPhoto = new GalleryPhoto(getContext());

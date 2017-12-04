@@ -25,7 +25,7 @@ public class LoginRequest extends StringRequest {
         params.put("username", username);
         params.put("password", password);
 
-        Log.i("The Request Of Login", username);
+        Log.i("The Request Of Login", params.toString());
     }
 
     @Override

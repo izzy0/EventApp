@@ -93,7 +93,7 @@ public class EventDetailsNavigationDrawer extends AppCompatActivity implements N
                 startActivity(eventIntent);
                 break;
             case R.id.nav_login:
-                Intent loginIntent = new Intent(this, LoginTwoActivity.class);
+                Intent loginIntent = new Intent(this, LoginActivity.class);
                 startActivity(loginIntent);
             case R.id.nav_register:
                 Intent registerUserIntent = new Intent(this, RegisterUserActivity.class);

@@ -98,7 +98,7 @@ public class AccountDetailsNavigationDrawer extends AppCompatActivity implements
                 Intent eventIntent = new Intent(this, EventNavigationDrawer.class);
                 startActivity(eventIntent);
             case R.id.nav_login:
-                Intent intent = new Intent(this, LoginTwoActivity.class);
+                Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
             case R.id.nav_register:
                 Intent intent1 = new Intent(this, RegisterUserActivity.class);
