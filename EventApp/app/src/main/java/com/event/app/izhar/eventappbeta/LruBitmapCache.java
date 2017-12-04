@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventapp;
+package com.event.app.izhar.eventappbeta;
 
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
