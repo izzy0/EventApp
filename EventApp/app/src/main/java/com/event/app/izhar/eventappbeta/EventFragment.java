@@ -67,39 +67,6 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
                 startActivity(intent);
-
-//                Intent intent = null;
-//                switch (i) {
-//                    case 0:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 1:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 2:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 3:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 4:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 5:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    default: {
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    }
-//                }
             }
         });
         return view;

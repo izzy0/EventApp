@@ -7,8 +7,8 @@ android {
         applicationId "com.event.app.izhar.eventappbeta"
         minSdkVersion 18
         targetSdkVersion 24
-        versionCode 5
-        versionName '1.0.5'
+        versionCode 6
+        versionName '1.0.6'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         useLibrary 'org.apache.http.legacy'
     }
@@ -46,6 +46,7 @@ dependencies {
     compile 'com.googlecode.json-simple:json-simple:1.1'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
     compile 'net.gotev:uploadservice:3.4.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
     testCompile 'junit:junit:4.12'
     compile files('libs/PhotoUtil.jar')
 }

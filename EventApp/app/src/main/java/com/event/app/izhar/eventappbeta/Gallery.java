@@ -90,8 +90,10 @@ public class Gallery extends Fragment {
         sharedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "View Shared Event Pictures!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(v, "View Shared Event Pictures!", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                Intent shareImageIntent = new Intent(getContext(), ImageListActivity.class);
+                startActivity(shareImageIntent);
             }
         });
 
