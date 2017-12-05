@@ -73,11 +73,15 @@ public class DataParser extends AsyncTask<Void, Void, Integer> {
             ImageObject imageObject;
             //TODO the jsonObject getters string params will need to be changed to the db column name
             for (int i = 0; i<jsonArray.length(); i++){
+
                 jsonObject = jsonArray.getJSONObject(i);
-//                int id = jsonObject.getInt("__pkphotoid");
-//                String url = jsonObject.getString("photo_path");
-                int id = jsonObject.getInt("id");
-                String url = jsonObject.getString("url");
+
+                int id = jsonObject.getInt("__pkphotoid");
+                String url = jsonObject.getString("photo_path");
+
+            //use for local host connection
+//                int id = jsonObject.getInt("id");
+//                String url = jsonObject.getString("url");
 
                 imageObject = new ImageObject();
                 imageObject.setId(id);

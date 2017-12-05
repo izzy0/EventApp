@@ -1,6 +1,7 @@
 package com.event.app.izhar.eventappbeta;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -19,7 +20,8 @@ import android.widget.GridView;
 
 import com.event.app.izhar.eventappbeta.DBConnection.Downloader;
 
-public class ImageListActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ImageListActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        Gallery.OnFragmentInteractionListener{
 
 //    final static String IMAGE_LIST_URL = "http://10.15.21.74/Eventapp/image_list.php";
 //    final static String IMAGE_LIST_URL = "http://localhost/Eventapp/image_list.php";
@@ -48,24 +50,35 @@ public class ImageListActivity extends AppCompatActivity implements NavigationVi
 
         final GridView gridView = (GridView) findViewById(R.id.gallery_image_view);
 
+        loadImages(gridView);
+
         FloatingActionButton button = (FloatingActionButton) findViewById(R.id.image_list_fab_refresh);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Downloader(ImageListActivity.this, IMAGE_LIST_URL, gridView).execute();
+                loadImages(gridView);
             }
         });
     }
 
-    @Override
-    public void onBackPressed() {
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
+    private void loadImages(GridView gridView){
+        new Downloader(ImageListActivity.this, IMAGE_LIST_URL, gridView).execute();
+
     }
+//    @Override
+//    public void onBackPressed() {
+//        Gallery fragment = new Gallery();
+//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.replace(R.id.fragment_container, fragment);
+//        fragmentTransaction.commit();
+//
+////        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+////        if (drawer.isDrawerOpen(GravityCompat.START)) {
+////            drawer.closeDrawer(GravityCompat.START);
+////        } else {
+////            super.onBackPressed();
+////        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -124,5 +137,10 @@ public class ImageListActivity extends AppCompatActivity implements NavigationVi
         DisplaySelectedScreen(id);
 
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
