@@ -13,7 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
+import android.widget.Toast;
 
 //this is the main view
 public class EventNavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
@@ -26,6 +29,9 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
+
+
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         
@@ -41,6 +47,19 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) header.findViewById(R.id.nav_bar_username_nav);
+        TextView navEmail = (TextView) header.findViewById(R.id.nav_bar_email_nav);
+        if (User.getUsername() != null){
+            navUsername.setText(User.getUsername());
+            navEmail.setText(User.getEmail());
+
+        }else{
+            navUsername.setText("Developer");
+            navEmail.setText("Developer@dev.com");
+        }
+
     }
 
     @Override

@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 //this is the user accounts activity
 public class AccountDetailsNavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
@@ -40,6 +42,18 @@ public class AccountDetailsNavigationDrawer extends AppCompatActivity implements
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View header = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) header.findViewById(R.id.nav_bar_username_nav);
+        TextView navEmail = (TextView) header.findViewById(R.id.nav_bar_email_nav);
+        if (User.getUsername() != null){
+            navUsername.setText(User.getUsername());
+            navEmail.setText(User.getEmail());
+
+        }else{
+            navUsername.setText("Developer");
+            navEmail.setText("Developer@dev.com");
+        }
     }
 
     //TODO hides menu buttons

@@ -91,21 +91,6 @@ public class ImageListActivity extends AppCompatActivity implements NavigationVi
         new Downloader(ImageListActivity.this, IMAGE_LIST_URL, gridView).execute();
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        Gallery fragment = new Gallery();
-//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.replace(R.id.fragment_container, fragment);
-//        fragmentTransaction.commit();
-//
-////        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-////        if (drawer.isDrawerOpen(GravityCompat.START)) {
-////            drawer.closeDrawer(GravityCompat.START);
-////        } else {
-////            super.onBackPressed();
-////        }
-//    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
