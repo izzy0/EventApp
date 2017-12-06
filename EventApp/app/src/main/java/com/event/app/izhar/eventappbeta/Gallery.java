@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -23,6 +24,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.event.app.izhar.eventappbeta.DBConnection.Downloader;
 import com.kosalgeek.android.photoutil.CameraPhoto;
 import com.kosalgeek.android.photoutil.GalleryPhoto;
 import com.kosalgeek.android.photoutil.ImageLoader;
@@ -56,6 +58,7 @@ public class Gallery extends Fragment {
     GalleryPhoto galleryPhoto;
     CameraPhoto cameraPhoto;
     String folderName = "/EventApp";
+    FloatingActionButton uploadFab;
 
     public Gallery() {
     }
@@ -117,15 +120,21 @@ public class Gallery extends Fragment {
             }
         });
 
-        FloatingActionButton uploadFab = (FloatingActionButton) view.findViewById(R.id.gallery_upload_fab_left);
+        uploadFab = (FloatingActionButton) view.findViewById(R.id.gallery_upload_fab_left);
         uploadFab.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                uploadImage();
+                if (imageView.getDrawable() != null){
+                    uploadImage();
+                    uploadFab.hide();
+                }else {
+                    Toast.makeText(getContext(), "Must have a photo selected to upload", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
+        uploadFab.hide();
         return view;
     }
 
@@ -175,7 +184,7 @@ public class Gallery extends Fragment {
 //        Toast.makeText(getContext(), "To Results resultCode: " + resultCode +
 //                "requestCode: " + requestCode, Toast.LENGTH_SHORT).show();
         if (resultCode == RESULT_OK) {
-
+            uploadFab.show();
             if (requestCode == GALLERY_REQUEST) {
 //                Toast.makeText(getContext(), "From Gallery", Toast.LENGTH_SHORT).show();
 
@@ -198,6 +207,10 @@ public class Gallery extends Fragment {
                 try {
                     Bitmap bitmapSave = (Bitmap) data.getExtras().get("data");
                     savePhoto(bitmapSave);
+
+//                    bitmap = ImageLoader.init().from(photoPath).requestSize(512, 512).getBitmap();
+//                    imageView.setImageBitmap(bitmap);
+
 
                 } catch (Exception e) {
                     Toast.makeText(getContext(), e.toString(), Toast.LENGTH_SHORT).show();

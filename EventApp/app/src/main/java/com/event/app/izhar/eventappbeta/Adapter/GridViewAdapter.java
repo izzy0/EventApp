@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class GridViewAdapter extends BaseAdapter{
 
     Context context;
-    ArrayList<ImageObject> imageObjectArrayList;
+    public static ArrayList<ImageObject> imageObjectArrayList;
 
     LayoutInflater inflater;
 
@@ -59,7 +59,7 @@ public class GridViewAdapter extends BaseAdapter{
         //Bind data
         ImageObject imageObject = imageObjectArrayList.get(position);
         //Bing image
-        Toast.makeText(context, imageObject.getImageURL(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, imageObject.getImageURL(), Toast.LENGTH_SHORT).show();
         PicassoClient.downloadImage(context,imageObject.getImageURL(),imageView);
 
         return convertView;

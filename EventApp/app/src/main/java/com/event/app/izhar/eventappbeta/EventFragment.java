@@ -57,6 +57,7 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getContext(), "List Synced", Toast.LENGTH_SHORT).show();
                 queryDatabaseIntoJsonResponse();
             }
         });
