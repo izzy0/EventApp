@@ -40,6 +40,8 @@ public class AccountDetailsNavigationDrawer extends AppCompatActivity implements
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -103,19 +105,25 @@ public class AccountDetailsNavigationDrawer extends AppCompatActivity implements
         //TODO add the rest of the fragments add subscription , settings
         switch (id) {
             case R.id.view_gallery:
-
                 Intent eventDetailsIntent = new Intent(this, EventDetailsNavigationDrawer.class);
                 startActivity(eventDetailsIntent);
+                break;
 
             case R.id.nav_account:
-
                 fragment = new AccountFrag();
                 break;
 
             case R.id.events:
-
                 Intent eventIntent = new Intent(this, EventNavigationDrawer.class);
                 startActivity(eventIntent);
+                break;
+
+            case R.id.nav_signout:
+                Intent signOutIntent = new Intent(this, LoginTwoActivity.class);
+                finish();
+                startActivity(signOutIntent);
+                break;
+
         }
 
         if (fragment != null) {

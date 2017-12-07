@@ -30,11 +30,9 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
 
-
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        
+
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
         tx.replace(R.id.fragment_container, new EventFragment());
         tx.commit();
@@ -44,6 +42,8 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -108,9 +108,16 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
             case R.id.nav_account:
                 Intent accountDetailsIntent = new Intent(this, AccountDetailsNavigationDrawer.class);
                 startActivity(accountDetailsIntent);
+                break;
 
             case R.id.events:
                 fragment = new EventFragment();
+                break;
+
+            case R.id.nav_signout:
+                Intent signOutIntent = new Intent(this, LoginTwoActivity.class);
+                finish();
+                startActivity(signOutIntent);
                 break;
         }
 
