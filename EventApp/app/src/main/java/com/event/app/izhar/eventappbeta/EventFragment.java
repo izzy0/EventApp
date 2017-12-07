@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -59,6 +60,17 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
             public void onClick(View view) {
                 Toast.makeText(getContext(), "List Synced", Toast.LENGTH_SHORT).show();
                 queryDatabaseIntoJsonResponse();
+            }
+        });
+
+        FloatingActionButton createEvent = (FloatingActionButton) view.findViewById(R.id.event_create_fab);
+        createEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment createEvent = new CreateEvent();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, createEvent);
+                fragmentTransaction.commit();
             }
         });
 
@@ -161,6 +173,9 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
                             // Adding subject list object into eventContextList.
                             eventContextList.add(eventContext);
                         }
+
+                        Collections.reverse(eventContextList);
+                        
                     } catch (JSONException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
