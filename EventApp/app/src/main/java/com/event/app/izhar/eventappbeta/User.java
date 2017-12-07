@@ -27,8 +27,15 @@ public  class User {
         User.firstName = firstName;
         User.lastName = lastName;
         User.email = email;
-//        this.isHost = isHost;
-//        this.isAdmin = isAdmin;
+    }
+
+    public User(int userId, String username, String firstName, String lastName, String email){
+
+        User.userId = userId;
+        User.username = username;
+        User.firstName = firstName;
+        User.lastName = lastName;
+        User.email = email;
     }
 
     //getter-setters

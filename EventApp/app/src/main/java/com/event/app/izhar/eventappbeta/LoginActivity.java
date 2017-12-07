@@ -51,14 +51,15 @@ public class LoginActivity extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if (success) {
-
+                                //TODO FIX PARSE USER
+                                //new ParseUser(jsonResponse.toString());
                                 createUser(jsonResponse);
 
                                 Intent loginIntent = new Intent(LoginActivity.this, EventNavigationDrawer.class);
                                 LoginActivity.this.startActivity(loginIntent);
 
-                                Toast.makeText(getApplicationContext(), "Success",
-                                        Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getApplicationContext(), "Success",
+//                                        Toast.LENGTH_LONG).show();
                             } else {
                                 Toast.makeText(getApplicationContext(), "Login Failed",
                                         Toast.LENGTH_SHORT).show();
@@ -96,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
 
             new User(id, username,password,firstName,lastName,email);
             Toast.makeText(this, "Welcome "+ User.getUsername(), Toast.LENGTH_SHORT).show();
-            ParseUser parseUser = new ParseUser(jsonResponse.toString());
+           // ParseUser parseUser = new ParseUser(jsonResponse.toString());
 
         } catch (JSONException e) {
             e.printStackTrace();

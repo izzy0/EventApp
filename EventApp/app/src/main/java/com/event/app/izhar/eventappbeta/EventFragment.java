@@ -175,7 +175,7 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
                         }
 
                         Collections.reverse(eventContextList);
-                        
+
                     } catch (JSONException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
