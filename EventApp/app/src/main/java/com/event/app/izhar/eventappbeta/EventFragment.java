@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -57,7 +58,19 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getContext(), "List Synced", Toast.LENGTH_SHORT).show();
                 queryDatabaseIntoJsonResponse();
+            }
+        });
+
+        FloatingActionButton createEvent = (FloatingActionButton) view.findViewById(R.id.event_create_fab);
+        createEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment createEvent = new CreateEvent();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, createEvent);
+                fragmentTransaction.commit();
             }
         });
 
@@ -67,39 +80,6 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
                 startActivity(intent);
-
-//                Intent intent = null;
-//                switch (i) {
-//                    case 0:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 1:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 2:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 3:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 4:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    case 5:
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    default: {
-//                        intent = new Intent(getContext(), EventDetailsNavigationDrawer.class);
-//                        startActivity(intent);
-//                        break;
-//                    }
-//                }
             }
         });
         return view;
@@ -193,6 +173,9 @@ public class EventFragment extends Fragment implements CreateEvent.OnFragmentInt
                             // Adding subject list object into eventContextList.
                             eventContextList.add(eventContext);
                         }
+
+                        Collections.reverse(eventContextList);
+
                     } catch (JSONException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();

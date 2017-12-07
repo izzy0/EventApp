@@ -55,10 +55,10 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
         final String lname = lastName.getText().toString();
         final String emailString = email.getText().toString();
 
-        User user = new User(uname, passw, fname, lname, emailString);
-        JsonGsonParser parser = new JsonGsonParser();
-        parser.SerializeFile(user);
-        Log.i("Parser", parser.toString());
+
+//        JsonGsonParser parser = new JsonGsonParser();
+//        parser.SerializeFile(user);
+//        Log.i("Parser", parser.toString());
 
         if(validateFields(uname, passw, fname, lname, emailString)){
             Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -69,6 +69,11 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
 
                         JSONObject jsonObject = new JSONObject(response);
                         boolean success = jsonObject.getBoolean("success");
+
+                        int id = jsonObject.getInt("user_id");
+                        if (success){
+                            new User(id, uname, passw, fname, lname, emailString);
+                        }
                         System.out.println("boolean json"+success);
 
                         processFinish(success);

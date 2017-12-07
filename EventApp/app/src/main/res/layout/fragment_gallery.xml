@@ -77,12 +77,12 @@
             app:layout_constraintVertical_bias="0.022" />
 
         <android.support.design.widget.FloatingActionButton
-        android:id="@+id/gallery_upload_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add"
+            android:id="@+id/gallery_upload_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/ic_menu_camera"
             android:layout_marginRight="16dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -99,7 +99,7 @@
         <ImageView
             android:id="@+id/gallery_iv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="250dp"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -108,10 +108,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button3"
-            app:layout_constraintVertical_bias="0.142"
-
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" />
+            app:layout_constraintVertical_bias="0.142" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/gallery_upload_fab_left"

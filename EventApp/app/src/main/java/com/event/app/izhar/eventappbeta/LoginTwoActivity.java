@@ -97,4 +97,5 @@ public class LoginTwoActivity extends AppCompatActivity {
     private void registerAction(){
         LoginTwoActivity.this.startActivity(new Intent(LoginTwoActivity.this, RegisterUserActivity.class));
     }
+
 }

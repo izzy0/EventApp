@@ -7,24 +7,35 @@ package com.event.app.izhar.eventappbeta;
  *
  */
 
-public class User {
-    private String username;
-    private String firstName;
-    private String lastName;
+public  class User {
+
+    private static int userId;
+    private static String username;
+    private static String firstName;
+    private static String lastName;
     private String password;
-    private String email;
+    private static String email;
     private Boolean isHost;
     private Boolean isAdmin;
 
     //add password?
-    User(String username, String password, String firstName, String lastName, String email){
-        this.username = username;
+    public User(int userId, String username, String password, String firstName, String lastName, String email){
+
+        User.userId = userId;
+        User.username = username;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-//        this.isHost = isHost;
-//        this.isAdmin = isAdmin;
+        User.firstName = firstName;
+        User.lastName = lastName;
+        User.email = email;
+    }
+
+    public User(int userId, String username, String firstName, String lastName, String email){
+
+        User.userId = userId;
+        User.username = username;
+        User.firstName = firstName;
+        User.lastName = lastName;
+        User.email = email;
     }
 
     //getter-setters
@@ -32,11 +43,15 @@ public class User {
         this.username = username;
     }
 
-    public String getUsername(){
+    public static String getUsername(){
         return username;
     }
 
-    public String getFirstName(){
+    public static int getUserId(){
+        return userId;
+    }
+
+    public static String getFirstName(){
         return firstName;
     }
     public void setFirstName(String firstName){
@@ -51,7 +66,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail(){
+    public static String getEmail(){
         return email;
     }
 
