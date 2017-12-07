@@ -10,9 +10,14 @@
     <GridView
         android:id="@+id/gallery_image_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="655dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:numColumns="3"
+        android:paddingTop="30dp"
         android:paddingLeft="20dp"
-        android:numColumns="3">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </GridView>
 

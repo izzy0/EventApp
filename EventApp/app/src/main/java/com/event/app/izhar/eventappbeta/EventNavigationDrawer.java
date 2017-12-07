@@ -99,26 +99,19 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
         Fragment fragment = null;
         //TODO add the rest of the fragments
         switch (id) {
+
             case R.id.view_gallery:
-//                fragment = new Gallery();
                 Intent eventDetailsIntent = new Intent(this, EventDetailsNavigationDrawer.class);
                 startActivity(eventDetailsIntent);
                 break;
+
             case R.id.nav_account:
                 Intent accountDetailsIntent = new Intent(this, AccountDetailsNavigationDrawer.class);
                 startActivity(accountDetailsIntent);
-            case R.id.create_event:
-                fragment = new CreateEvent();
-                break;
+
             case R.id.events:
                 fragment = new EventFragment();
                 break;
-            case R.id.nav_login:
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-            case R.id.nav_register:
-                Intent intent1 = new Intent(this, RegisterUserActivity.class);
-                startActivity(intent1);
         }
 
         if (fragment != null) {

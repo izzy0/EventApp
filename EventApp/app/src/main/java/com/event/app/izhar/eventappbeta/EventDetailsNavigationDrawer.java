@@ -93,25 +93,19 @@ public class EventDetailsNavigationDrawer extends AppCompatActivity implements N
         Fragment fragment = null;
         //TODO add the rest of the fragments
         switch (id) {
+
             case R.id.view_gallery:
                 fragment = new Gallery();
-//                Intent eventDetailsIntent = new Intent(this, EventDetailsNavigationDrawer.class);
-//                startActivity(eventDetailsIntent);
                 break;
+
             case R.id.nav_account:
                 Intent accountDetailsIntent = new Intent(this, AccountDetailsNavigationDrawer.class);
                 startActivity(accountDetailsIntent);
+
             case R.id.events:
-//                fragment = new EventActivity();
                 Intent eventIntent = new Intent(this, EventNavigationDrawer.class);
                 startActivity(eventIntent);
                 break;
-            case R.id.nav_login:
-                Intent loginIntent = new Intent(this, LoginActivity.class);
-                startActivity(loginIntent);
-            case R.id.nav_register:
-                Intent registerUserIntent = new Intent(this, RegisterUserActivity.class);
-                startActivity(registerUserIntent);
         }
 
         if (fragment != null) {

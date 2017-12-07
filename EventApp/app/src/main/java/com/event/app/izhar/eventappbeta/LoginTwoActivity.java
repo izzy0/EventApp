@@ -62,13 +62,13 @@ public class LoginTwoActivity extends AppCompatActivity {
                         boolean success = jsonResponse.getBoolean("success");
 
                         if (success) {
-                            String username = jsonResponse.getString("username");
+                            //TODO FIX PARSE USER
+                            //new ParseUser(jsonResponse.toString());
+                            createUser(jsonResponse);
+
                             Intent loginIntent = new Intent(LoginTwoActivity.this, EventNavigationDrawer.class);
-                            loginIntent.putExtra("username", username);
                             LoginTwoActivity.this.startActivity(loginIntent);
 
-                            Toast.makeText(getApplicationContext(), "Success",
-                                    Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(getApplicationContext(), "Login Failed",
                                     Toast.LENGTH_SHORT).show();
@@ -96,6 +96,26 @@ public class LoginTwoActivity extends AppCompatActivity {
     }
     private void registerAction(){
         LoginTwoActivity.this.startActivity(new Intent(LoginTwoActivity.this, RegisterUserActivity.class));
+    }
+
+    private void createUser(JSONObject jsonResponse){
+        try {
+            String username = jsonResponse.getString("username");
+            String password = jsonResponse.getString("password");
+            String firstName = jsonResponse.getString("first_name");
+            String lastName = jsonResponse.getString("last_name");
+            String email = jsonResponse.getString("email");
+            int id = Integer.parseInt(jsonResponse.getString("user_id"));
+
+            new User(id, username,password,firstName,lastName,email);
+
+            Toast.makeText(this, "Welcome "+ User.getUsername(), Toast.LENGTH_SHORT).show();
+
+            //ParseUser parseUser = new ParseUser(jsonResponse.toString());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }

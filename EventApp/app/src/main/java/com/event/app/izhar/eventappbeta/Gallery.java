@@ -15,6 +15,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -93,10 +94,12 @@ public class Gallery extends Fragment {
         sharedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Snackbar.make(v, "View Shared Event Pictures!", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-                Intent shareImageIntent = new Intent(getContext(), ImageListActivity.class);
-                startActivity(shareImageIntent);
+//                Intent shareImageIntent = new Intent(getContext(), ImageListActivity.class);
+//                startActivity(shareImageIntent);
+                Fragment imageList = new ImageListActivity();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, imageList);
+                fragmentTransaction.commit();
             }
         });
 

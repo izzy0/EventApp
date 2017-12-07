@@ -103,20 +103,19 @@ public class AccountDetailsNavigationDrawer extends AppCompatActivity implements
         //TODO add the rest of the fragments add subscription , settings
         switch (id) {
             case R.id.view_gallery:
+
                 Intent eventDetailsIntent = new Intent(this, EventDetailsNavigationDrawer.class);
                 startActivity(eventDetailsIntent);
+
             case R.id.nav_account:
+
                 fragment = new AccountFrag();
                 break;
+
             case R.id.events:
+
                 Intent eventIntent = new Intent(this, EventNavigationDrawer.class);
                 startActivity(eventIntent);
-            case R.id.nav_login:
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-            case R.id.nav_register:
-                Intent intent1 = new Intent(this, RegisterUserActivity.class);
-                startActivity(intent1);
         }
 
         if (fragment != null) {
