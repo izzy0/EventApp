@@ -30,17 +30,13 @@ import java.sql.Time;
 public class CreateEvent extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-
     private String eventHost;
-
     private EditText eventName;
     private EditText eventType;
     //todo change date type
     private EditText eventDate;
-
     private Time startTime;
     private Time endTime;
-
     private Button createEventBtn;
 
     @SuppressLint("ValidFragment")
@@ -63,7 +59,6 @@ public class CreateEvent extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_event, container, false);
 
         eventName = (EditText) view.findViewById(R.id.createevent_eventName);
@@ -78,7 +73,6 @@ public class CreateEvent extends Fragment {
             public void onClick(View v) {
 
                 final String eventNameStr = eventName.getText().toString();
-//        final String eventTypeStr = eventType.getText().toString();
                 final String eventDateStr = eventDate.getText().toString();
 
                 //todo pass in user info
@@ -144,7 +138,6 @@ public class CreateEvent extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name

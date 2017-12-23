@@ -1,8 +1,8 @@
 package com.event.app.izhar.eventappbeta.Fragment;
 
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,23 +11,19 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.event.app.izhar.eventappbeta.Service.Adapter.GridViewAdapter;
-import com.event.app.izhar.eventappbeta.Service.DBConnection.Downloader;
 import com.event.app.izhar.eventappbeta.ImageObject;
 import com.event.app.izhar.eventappbeta.R;
+import com.event.app.izhar.eventappbeta.Service.Adapter.GridViewAdapter;
+import com.event.app.izhar.eventappbeta.Service.DBConnection.Downloader;
 import com.squareup.picasso.Picasso;
 
-public class ImageListActivity extends Fragment{
+public class ImageListActivity extends Fragment {
 
-//    final static String IMAGE_LIST_URL = "http://10.15.21.74/Eventapp/image_list.php";
-//    final static String IMAGE_LIST_URL = "http://localhost/Eventapp/image_list.php";
-//    final static String IMAGE_LIST_URL = "http://192.168.1.135/Eventapp/image_list.php";
     final static String IMAGE_LIST_URL = "http://cq7243tk.000webhostapp.com/image_list.php";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_image_list);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,7 +69,7 @@ public class ImageListActivity extends Fragment{
         return view;
     }
 
-    private void loadImages(GridView gridView){
+    private void loadImages(GridView gridView) {
         new Downloader(getContext(), IMAGE_LIST_URL, gridView).execute();
     }
 }

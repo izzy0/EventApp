@@ -16,10 +16,6 @@ import java.io.Serializable;
 import java.io.Writer;
 import java.util.List;
 
-/**
- * Created by Izhar on 10/30/2017.
- */
-
 public class JsonGsonParser implements Serializable {
 
     Gson gson = new Gson();

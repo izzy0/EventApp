@@ -22,7 +22,6 @@ import com.event.app.izhar.eventappbeta.Fragment.Gallery;
 import com.event.app.izhar.eventappbeta.R;
 import com.event.app.izhar.eventappbeta.User;
 
-//this is the main view
 public class EventNavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
         CreateEvent.OnFragmentInteractionListener, Gallery.OnFragmentInteractionListener{
 
@@ -78,8 +77,6 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
         return true;
     }
 
@@ -138,7 +135,6 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
         DisplaySelectedScreen(id);
 

@@ -6,10 +6,6 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by khanp on 12/3/2017.
- */
-
 public class EventRequest extends StringRequest {
 
     private static final String EVENT_REQUEST_URL = "https://cq7243tk.000webhostapp.com/event_list.php";

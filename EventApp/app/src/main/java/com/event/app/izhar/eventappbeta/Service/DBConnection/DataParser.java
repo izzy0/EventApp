@@ -6,18 +6,14 @@ import android.os.AsyncTask;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.event.app.izhar.eventappbeta.Service.Adapter.GridViewAdapter;
 import com.event.app.izhar.eventappbeta.ImageObject;
+import com.event.app.izhar.eventappbeta.Service.Adapter.GridViewAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-/**
- * Created by Izhar on 12/4/2017.
- */
 
 public class DataParser extends AsyncTask<Void, Void, Integer> {
 
@@ -55,33 +51,29 @@ public class DataParser extends AsyncTask<Void, Void, Integer> {
 
         progressDialog.dismiss();
 
-        if (result==0){
+        if (result == 0) {
             Toast.makeText(context, "Unable to parse", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             //Bind data to grid view
             GridViewAdapter gridViewAdapter = new GridViewAdapter(context, imageObjectArrayList);
             imageGridView.setAdapter(gridViewAdapter);
         }
     }
 
-    private int parseData(){
-        try{
+    private int parseData() {
+        try {
             JSONArray jsonArray = new JSONArray(jsonDate);
             JSONObject jsonObject = null;
 
             imageObjectArrayList.clear();
             ImageObject imageObject;
             //TODO the jsonObject getters string params will need to be changed to the db column name
-            for (int i = 0; i<jsonArray.length(); i++){
+            for (int i = 0; i < jsonArray.length(); i++) {
 
                 jsonObject = jsonArray.getJSONObject(i);
 
                 int id = jsonObject.getInt("__pkphotoid");
                 String url = jsonObject.getString("photo_path");
-
-            //use for local host connection
-//                int id = jsonObject.getInt("id");
-//                String url = jsonObject.getString("url");
 
                 imageObject = new ImageObject();
                 imageObject.setId(id);
@@ -89,13 +81,13 @@ public class DataParser extends AsyncTask<Void, Void, Integer> {
 
                 imageObjectArrayList.add(imageObject);
             }
-            //if successful
+
             return 1;
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //if failed
+
         return 0;
     }
 }

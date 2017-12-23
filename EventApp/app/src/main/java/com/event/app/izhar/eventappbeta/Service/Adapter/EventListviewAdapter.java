@@ -3,9 +3,9 @@ package com.event.app.izhar.eventappbeta.Service.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.ViewGroup;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
@@ -13,10 +13,6 @@ import com.event.app.izhar.eventappbeta.EventContext;
 import com.event.app.izhar.eventappbeta.R;
 
 import java.util.List;
-
-/**
- * Created by khanp on 11/2/2017.
- */
 
 public class EventListviewAdapter extends BaseAdapter {
 

@@ -8,10 +8,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by Izhar on 12/5/2017.
- */
-
 public class ParseUser extends AsyncTask<Void, Void, Integer> {
 
     String jsonDate;
@@ -51,13 +47,11 @@ public class ParseUser extends AsyncTask<Void, Void, Integer> {
 
                 new User(id,username,password,firstName,lastName,email);
             }
-            //if successful
             return 1;
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //if failed
         return 0;
     }
 }

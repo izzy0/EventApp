@@ -5,13 +5,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by Izhar on 12/4/2017.
- */
-
 public class Connector {
-    public static HttpURLConnection connect (String urlAddress){
-        try{
+    public static HttpURLConnection connect(String urlAddress) {
+        try {
             URL url = new URL(urlAddress);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
@@ -22,7 +18,7 @@ public class Connector {
 
             return con;
 
-        }catch(MalformedURLException e){
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

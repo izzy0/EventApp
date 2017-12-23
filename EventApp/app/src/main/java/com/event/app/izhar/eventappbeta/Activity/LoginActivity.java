@@ -1,8 +1,8 @@
 package com.event.app.izhar.eventappbeta.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
 
                             if (success) {
                                 //TODO FIX PARSE USER
-                                //new ParseUser(jsonResponse.toString());
                                 createUser(jsonResponse);
 
                                 Intent loginIntent = new Intent(LoginActivity.this, EventNavigationDrawer.class);
@@ -70,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                 };
 
                 LoginRequest loginRequest = new LoginRequest(username, password, responseListener);
-                System.out.println("parameters "+ loginRequest.getParams());
+                System.out.println("parameters " + loginRequest.getParams());
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
             }
@@ -85,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void createUser(JSONObject jsonResponse){
+    private void createUser(JSONObject jsonResponse) {
         try {
             String username = jsonResponse.getString("username");
             String password = jsonResponse.getString("password");
@@ -94,11 +93,9 @@ public class LoginActivity extends AppCompatActivity {
             String email = jsonResponse.getString("email");
             int id = Integer.parseInt(jsonResponse.getString("user_id"));
 
-            new User(id, username,password,firstName,lastName,email);
+            new User(id, username, password, firstName, lastName, email);
 
-            Toast.makeText(this, "Welcome "+ User.getUsername(), Toast.LENGTH_SHORT).show();
-
-            //ParseUser parseUser = new ParseUser(jsonResponse.toString());
+            Toast.makeText(this, "Welcome " + User.getUsername(), Toast.LENGTH_SHORT).show();
 
         } catch (JSONException e) {
             e.printStackTrace();

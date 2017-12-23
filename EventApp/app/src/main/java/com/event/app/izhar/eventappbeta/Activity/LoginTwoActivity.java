@@ -39,7 +39,7 @@ public class LoginTwoActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-            loginAction();
+                loginAction();
             }
         });
 
@@ -51,11 +51,11 @@ public class LoginTwoActivity extends AppCompatActivity {
         });
     }
 
-    private void loginAction(){
+    private void loginAction() {
         final String username = etUsername.getText().toString();
         final String password = etPassword.getText().toString();
 
-        if (username != null || password != null ){
+        if (username != null || password != null) {
             Response.Listener<String> responseListener = new Response.Listener<String>() {
 
                 @Override
@@ -66,7 +66,6 @@ public class LoginTwoActivity extends AppCompatActivity {
 
                         if (success) {
                             //TODO FIX PARSE USER
-                            //new ParseUser(jsonResponse.toString());
                             createUser(jsonResponse);
 
                             Intent loginIntent = new Intent(LoginTwoActivity.this, EventNavigationDrawer.class);
@@ -83,25 +82,26 @@ public class LoginTwoActivity extends AppCompatActivity {
             };
 
             LoginRequest loginRequest = new LoginRequest(username, password, responseListener);
-            System.out.println("parameters "+ loginRequest.getParams());
+            System.out.println("parameters " + loginRequest.getParams());
             RequestQueue queue = Volley.newRequestQueue(LoginTwoActivity.this);
             queue.add(loginRequest);
 
-        }else if(username == null){
+        } else if (username == null) {
             Toast.makeText(LoginTwoActivity.this, "Enter username", Toast.LENGTH_SHORT).show();
 
-        }else if (password == null){
+        } else if (password == null) {
             Toast.makeText(LoginTwoActivity.this, "Enter password", Toast.LENGTH_SHORT).show();
 
-        }else{
+        } else {
             Toast.makeText(LoginTwoActivity.this, "Please fill login fields", Toast.LENGTH_SHORT).show();
         }
     }
-    private void registerAction(){
+
+    private void registerAction() {
         LoginTwoActivity.this.startActivity(new Intent(LoginTwoActivity.this, RegisterUserActivity.class));
     }
 
-    private void createUser(JSONObject jsonResponse){
+    private void createUser(JSONObject jsonResponse) {
         try {
             String username = jsonResponse.getString("username");
             String password = jsonResponse.getString("password");
@@ -110,9 +110,9 @@ public class LoginTwoActivity extends AppCompatActivity {
             String email = jsonResponse.getString("email");
             int id = Integer.parseInt(jsonResponse.getString("user_id"));
 
-            new User(id, username,password,firstName,lastName,email);
+            new User(id, username, password, firstName, lastName, email);
 
-            Toast.makeText(this, "Welcome "+ User.getUsername(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Welcome " + User.getUsername(), Toast.LENGTH_SHORT).show();
 
             //ParseUser parseUser = new ParseUser(jsonResponse.toString());
 

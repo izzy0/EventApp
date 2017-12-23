@@ -20,9 +20,8 @@ import com.event.app.izhar.eventappbeta.Fragment.Gallery;
 import com.event.app.izhar.eventappbeta.R;
 import com.event.app.izhar.eventappbeta.User;
 
-//this is the gallery view
 public class EventDetailsNavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        Gallery.OnFragmentInteractionListener{
+        Gallery.OnFragmentInteractionListener {
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
@@ -54,11 +53,11 @@ public class EventDetailsNavigationDrawer extends AppCompatActivity implements N
         View header = navigationView.getHeaderView(0);
         TextView navUsername = (TextView) header.findViewById(R.id.nav_bar_username_nav);
         TextView navEmail = (TextView) header.findViewById(R.id.nav_bar_email_nav);
-        if (User.getUsername() != null){
+        if (User.getUsername() != null) {
             navUsername.setText(User.getUsername());
             navEmail.setText(User.getEmail());
 
-        }else{
+        } else {
             navUsername.setText("Developer");
             navEmail.setText("Developer@dev.com");
         }
@@ -76,22 +75,12 @@ public class EventDetailsNavigationDrawer extends AppCompatActivity implements N
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -135,7 +124,6 @@ public class EventDetailsNavigationDrawer extends AppCompatActivity implements N
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
         DisplaySelectedScreen(id);
 

@@ -13,10 +13,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 
-/**
- * Created by Izhar on 12/4/2017.
- */
-
 public class Downloader extends AsyncTask<Void,Void,String> {
 
     Context context;

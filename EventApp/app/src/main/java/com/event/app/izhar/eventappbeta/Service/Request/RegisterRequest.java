@@ -6,10 +6,6 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Izhar on 10/9/2017.
- */
-
 public class RegisterRequest extends StringRequest {
 
     private static final String REGISTER_REQUEST_URL = "https://cq7243tk.000webhostapp.com/register.php";
@@ -28,7 +24,7 @@ public class RegisterRequest extends StringRequest {
     }
 
     @Override
-    public Map<String, String> getParams(){
+    public Map<String, String> getParams() {
         return params;
     }
 }

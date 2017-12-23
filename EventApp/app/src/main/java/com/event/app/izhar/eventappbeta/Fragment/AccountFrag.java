@@ -10,6 +10,8 @@ import android.widget.Switch;
 
 import com.event.app.izhar.eventappbeta.R;
 
+
+//TODO add account info
 public class AccountFrag extends Fragment implements CreateEvent.OnFragmentInteractionListener {
 
     private Switch isAdminSwitch;
@@ -28,8 +30,6 @@ public class AccountFrag extends Fragment implements CreateEvent.OnFragmentInter
 
 //        isAdminSwitch = (Switch) view.findViewById(R.id.account_sadmin);
 
-
-
 //        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //
@@ -41,12 +41,12 @@ public class AccountFrag extends Fragment implements CreateEvent.OnFragmentInter
 //                fragmentTransaction.commit();
 //            }
 //        });
-        
+
         return view;
     }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-        
+
     }
 }

@@ -31,7 +31,6 @@ public class Camera extends AppCompatActivity {
 
     Button cameraBtn;
     ImageView cameraImageView;
-
     String folderName = "/EventApp";
 
     @Override
@@ -46,7 +45,7 @@ public class Camera extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent,0);
+                startActivityForResult(cameraIntent, 0);
             }
         });
     }
@@ -54,9 +53,10 @@ public class Camera extends AppCompatActivity {
     private String getPictureName() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
         String timeStamp = sdf.format(new Date());
-        return "EventApp" + timeStamp +".jpg";
+        return "EventApp" + timeStamp + ".jpg";
     }
-    public void savePhoto(Bitmap bitmap){
+
+    public void savePhoto(Bitmap bitmap) {
 
         cameraImageView.setImageBitmap(bitmap);
 
@@ -64,7 +64,7 @@ public class Camera extends AppCompatActivity {
         String pictureName = getPictureName();
         File dir = new File(pitureDirectory);
 
-        if(!dir.exists()){
+        if (!dir.exists()) {
             dir.mkdirs();
         }
 
@@ -81,12 +81,13 @@ public class Camera extends AppCompatActivity {
             //make into method call
             Toast.makeText(this, "Picture was saved to Gallery", Toast.LENGTH_SHORT).show();
 
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -95,7 +96,7 @@ public class Camera extends AppCompatActivity {
 
     }
 
-    private  void MakeSureFileWasCreated(File file){
+    private void MakeSureFileWasCreated(File file) {
         MediaScannerConnection.scanFile(
                 this,
                 new String[]{file.toString()},

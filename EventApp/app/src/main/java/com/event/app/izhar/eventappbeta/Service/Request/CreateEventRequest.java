@@ -6,9 +6,6 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Izhar on 10/9/2017.
- */
 
 public class CreateEventRequest extends StringRequest {
 
@@ -24,11 +21,10 @@ public class CreateEventRequest extends StringRequest {
         params.put("eventHost", eventHost);
         params.put("location", location);
         params.put("eventname", eventName);
-//        params.put("images", images);
     }
 
     @Override
-    public Map<String, String> getParams(){
+    public Map<String, String> getParams() {
         return params;
     }
 }

@@ -12,11 +12,7 @@ import com.event.app.izhar.eventappbeta.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Izhar on 12/4/2017.
- */
-
-public class GridViewAdapter extends BaseAdapter{
+public class GridViewAdapter extends BaseAdapter {
 
     Context context;
     public static ArrayList<ImageObject> imageObjectArrayList;
@@ -30,7 +26,6 @@ public class GridViewAdapter extends BaseAdapter{
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
-
 
     @Override
     public int getCount() {
@@ -50,16 +45,15 @@ public class GridViewAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        if (convertView == null){
-            convertView = inflater.inflate(R.layout.module_image, parent,false);
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.module_image, parent, false);
         }
         ImageView imageView = (ImageView) convertView.findViewById(R.id.gallery_image_module);
 
         //Bind data
         ImageObject imageObject = imageObjectArrayList.get(position);
         //Bing image
-//        Toast.makeText(context, imageObject.getImageURL(), Toast.LENGTH_SHORT).show();
-        PicassoClient.downloadImage(context,imageObject.getImageURL(),imageView);
+        PicassoClient.downloadImage(context, imageObject.getImageURL(), imageView);
 
         return convertView;
     }

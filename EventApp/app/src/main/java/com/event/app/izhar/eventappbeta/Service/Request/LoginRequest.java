@@ -15,8 +15,8 @@ public class LoginRequest extends StringRequest {
     private static final String LOGIN_REQUEST_URL = "http://cq7243tk.000webhostapp.com/logins.php";
     private Map<String, String> params;
 
-    public LoginRequest( String username, String password,
-                         Response.Listener<String> listener) {
+    public LoginRequest(String username, String password,
+                        Response.Listener<String> listener) {
         super(Request.Method.POST, LOGIN_REQUEST_URL, listener, null);
 
         params = new HashMap<>();
@@ -27,7 +27,7 @@ public class LoginRequest extends StringRequest {
     }
 
     @Override
-    public Map<String, String> getParams(){
+    public Map<String, String> getParams() {
         return params;
     }
 }

@@ -20,10 +20,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.event.app.izhar.eventappbeta.EventContext;
 import com.event.app.izhar.eventappbeta.Activity.EventDetailsNavigationDrawer;
-import com.event.app.izhar.eventappbeta.Service.Adapter.EventListviewAdapter;
+import com.event.app.izhar.eventappbeta.EventContext;
 import com.event.app.izhar.eventappbeta.R;
+import com.event.app.izhar.eventappbeta.Service.Adapter.EventListviewAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +35,7 @@ import java.util.List;
 
 
 public class EventFragment extends Fragment implements CreateEvent.OnFragmentInteractionListener {
+
     private static final String HTTP_URL = "http://cq7243tk.000webhostapp.com/event_list.php";
     private ListView listView;
     private String finalJSOnObject;
