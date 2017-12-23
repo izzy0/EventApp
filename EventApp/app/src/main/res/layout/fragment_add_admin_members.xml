@@ -2,18 +2,19 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.event.app.izhar.eventappbeta.AddAdminMember">
-<!-- TODO change tools:context to right activity!-->
+    android:orientation="vertical">
+
+    <!-- TODO change tools:context to right activity!-->
     <EditText
         android:id="@+id/member_search_id_textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/string_username"
         android:inputType="textPersonName"
+
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="64dp" />
 
@@ -22,15 +23,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="49dp"
-        android:text="Add"
+        android:layout_marginStart="49dp"
+        android:text="@string/string_add"
+
         app:layout_constraintLeft_toRightOf="@+id/member_search_id_textfield"
-        tools:layout_editor_absoluteY="64dp"
-        android:layout_marginStart="49dp" />
+
+        tools:layout_editor_absoluteY="64dp" />
 
     <ListView
         android:id="@+id/user_added_id_listview"
         android:layout_width="364dp"
         android:layout_height="374dp"
+
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="121dp" />
 
@@ -38,9 +42,11 @@
         android:id="@+id/search_user_id_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-        tools:layout_editor_absoluteY="16dp"
+        android:layout_marginLeft="49dp"
+        android:text="@string/string_search"
+
         app:layout_constraintLeft_toRightOf="@+id/member_search_id_textfield"
-        android:layout_marginLeft="49dp" />
+
+        tools:layout_editor_absoluteY="16dp" />
 
 </android.support.constraint.ConstraintLayout>

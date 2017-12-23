@@ -23,6 +23,6 @@
         android:layout_height="wrap_content"
         android:background="@android:color/holo_red_dark"
         android:textColor="@android:color/white"
-        android:text="Open Camera"/>
+        android:text="@string/string_open_camera"/>
 
 </LinearLayout>
