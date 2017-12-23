@@ -1,5 +1,9 @@
-package com.event.app.izhar.eventappbeta;
+package com.event.app.izhar.eventappbeta.Service;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
+import com.event.app.izhar.eventappbeta.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -24,6 +28,7 @@ public class JsonGsonParser implements Serializable {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void SerializeFile(User user){
 
         try (Writer writer = new FileWriter("c:\\users.json")) {
@@ -34,6 +39,7 @@ public class JsonGsonParser implements Serializable {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public User DeserializeFile(){
 
         try (Reader reader = new FileReader("D:\\users.json")) {

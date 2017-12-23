@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventappbeta;
+package com.event.app.izhar.eventappbeta.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.event.app.izhar.eventappbeta.R;
+import com.event.app.izhar.eventappbeta.Service.Request.RegisterRequest;
+import com.event.app.izhar.eventappbeta.User;
 import com.google.gson.*;
 
 import org.json.JSONException;

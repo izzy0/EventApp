@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventappbeta;
+package com.event.app.izhar.eventappbeta.Activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.event.app.izhar.eventappbeta.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;

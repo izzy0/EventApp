@@ -1,9 +1,8 @@
-package com.event.app.izhar.eventappbeta;
+package com.event.app.izhar.eventappbeta.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +11,9 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.event.app.izhar.eventappbeta.DBConnection.ParseUser;
+import com.event.app.izhar.eventappbeta.R;
+import com.event.app.izhar.eventappbeta.Service.Request.LoginRequest;
+import com.event.app.izhar.eventappbeta.User;
 
 import org.json.JSONException;
 import org.json.JSONObject;

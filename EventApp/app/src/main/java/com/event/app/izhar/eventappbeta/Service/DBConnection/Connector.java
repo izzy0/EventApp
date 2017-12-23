@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventappbeta.DBConnection;
+package com.event.app.izhar.eventappbeta.Service.DBConnection;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

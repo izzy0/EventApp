@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventappbeta;
+package com.event.app.izhar.eventappbeta.Fragment;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Switch;
+
+import com.event.app.izhar.eventappbeta.R;
 
 public class AccountFrag extends Fragment implements CreateEvent.OnFragmentInteractionListener {
 

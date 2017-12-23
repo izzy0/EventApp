@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventappbeta;
+package com.event.app.izhar.eventappbeta.Activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -15,6 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import com.event.app.izhar.eventappbeta.Fragment.Gallery;
+import com.event.app.izhar.eventappbeta.R;
+import com.event.app.izhar.eventappbeta.User;
 
 //this is the gallery view
 public class EventDetailsNavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,

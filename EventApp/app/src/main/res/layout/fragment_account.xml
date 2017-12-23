@@ -6,7 +6,7 @@
     android:background="@color/colorPrimaryDark"
     android:id="@+id/fragment_gallery"
     android:layout_alignParentBottom="true"
-    tools:context="com.event.app.izhar.eventappbeta.AccountDetailsNavigationDrawer">
+    tools:context="com.event.app.izhar.eventappbeta.Activity.AccountDetailsNavigationDrawer">
 
     <!-- TODO: Update blank fragment layout -->
 

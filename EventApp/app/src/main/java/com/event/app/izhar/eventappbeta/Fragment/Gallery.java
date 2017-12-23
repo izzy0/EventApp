@@ -1,4 +1,5 @@
-package com.event.app.izhar.eventappbeta;
+package com.event.app.izhar.eventappbeta.Fragment;
+
 
 import android.Manifest;
 import android.content.Context;
@@ -7,7 +8,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -25,7 +25,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.event.app.izhar.eventappbeta.DBConnection.Downloader;
+import com.event.app.izhar.eventappbeta.R;
 import com.kosalgeek.android.photoutil.CameraPhoto;
 import com.kosalgeek.android.photoutil.GalleryPhoto;
 import com.kosalgeek.android.photoutil.ImageLoader;

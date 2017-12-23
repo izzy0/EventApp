@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventappbeta;
+package com.event.app.izhar.eventappbeta.Fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -17,6 +17,9 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.event.app.izhar.eventappbeta.Event;
+import com.event.app.izhar.eventappbeta.R;
+import com.event.app.izhar.eventappbeta.Service.Request.CreateEventRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventappbeta.DBConnection;
+package com.event.app.izhar.eventappbeta.Service.DBConnection;
 
 import android.app.ProgressDialog;
 import android.content.Context;

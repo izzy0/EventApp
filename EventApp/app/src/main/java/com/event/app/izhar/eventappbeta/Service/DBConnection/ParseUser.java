@@ -1,9 +1,7 @@
-package com.event.app.izhar.eventappbeta.DBConnection;
+package com.event.app.izhar.eventappbeta.Service.DBConnection;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
-import com.event.app.izhar.eventappbeta.ImageObject;
 import com.event.app.izhar.eventappbeta.User;
 
 import org.json.JSONArray;

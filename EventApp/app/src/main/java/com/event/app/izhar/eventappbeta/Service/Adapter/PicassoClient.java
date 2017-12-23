@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventappbeta.Adapter;
+package com.event.app.izhar.eventappbeta.Service.Adapter;
 
 import android.content.Context;
 import android.widget.ImageView;

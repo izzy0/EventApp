@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventappbeta.Adapter;
+package com.event.app.izhar.eventappbeta.Service.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.event.app.izhar.eventappbeta.ImageObject;
 import com.event.app.izhar.eventappbeta.R;

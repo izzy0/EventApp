@@ -1,4 +1,4 @@
-package com.event.app.izhar.eventappbeta.DBConnection;
+package com.event.app.izhar.eventappbeta.Service.DBConnection;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.event.app.izhar.eventappbeta.Adapter.GridViewAdapter;
+import com.event.app.izhar.eventappbeta.Service.Adapter.GridViewAdapter;
 import com.event.app.izhar.eventappbeta.ImageObject;
 
 import org.json.JSONArray;

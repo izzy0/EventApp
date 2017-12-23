@@ -1,39 +1,21 @@
-package com.event.app.izhar.eventappbeta;
+package com.event.app.izhar.eventappbeta.Fragment;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.content.Intent;
-import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.event.app.izhar.eventappbeta.Adapter.GridViewAdapter;
-import com.event.app.izhar.eventappbeta.DBConnection.Downloader;
+import com.event.app.izhar.eventappbeta.Service.Adapter.GridViewAdapter;
+import com.event.app.izhar.eventappbeta.Service.DBConnection.Downloader;
+import com.event.app.izhar.eventappbeta.ImageObject;
+import com.event.app.izhar.eventappbeta.R;
 import com.squareup.picasso.Picasso;
-
-import javax.xml.parsers.FactoryConfigurationError;
 
 public class ImageListActivity extends Fragment{
 
