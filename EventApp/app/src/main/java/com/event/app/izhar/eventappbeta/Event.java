@@ -5,6 +5,7 @@ import java.sql.Time;
 public class Event {
 
     private String eventDate;
+    private int eventId;
     private String eventHost;
     private String eventName;
     private String eventLocation;
