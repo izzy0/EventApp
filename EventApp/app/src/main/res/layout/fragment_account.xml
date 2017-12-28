@@ -1,14 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_gallery"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:id="@+id/fragment_gallery"
     android:layout_alignParentBottom="true"
-    tools:context="com.event.app.izhar.eventappbeta.AccountDetailsNavigationDrawer">
-
-    <!-- TODO: Update blank fragment layout -->
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.event.app.izhar.eventappbeta.Activity.AccountDetailsNavigationDrawer">
 
 
     <android.support.constraint.ConstraintLayout
@@ -26,9 +24,10 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="54dp"
-            android:text="Account Frag"
+            android:text="@string/title_activity_account"
             android:textColor="@color/white"
             android:textSize="24sp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -44,8 +43,9 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="258dp"
-            android:text="isAdmin"
+            android:text="@string/string_isadmin"
             android:textColor="@color/white"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.458"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -66,6 +66,7 @@
             android:text="*DONT PRESS THE SWITCH* \n\n | \n | \n v "
             android:textColor="@color/white"
             android:textSize="18sp"
+
             app:layout_constraintBottom_toTopOf="@+id/switch1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

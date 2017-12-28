@@ -1,27 +1,62 @@
 <resources>
     <string name="app_name">EventApp</string>
-    <string name="title_activity_login">Sign in</string>
+
+    <!--location-->
     <string name="save_file_location">/storage/emulated/</string>
 
-    <!-- Strings related to login -->
+    <!--prompt-->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
+
+    <!--Error Messages-->
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-    <string name="title_activity_test">test</string>
+        completions."</string>
 
+    <!--Title-->
+    <string name="title_activity_test">test</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+    <string name="title_activity_event">EventActivity</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_account">Account</string>
+
+    <!--Nav Drawer-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
-    <string name="title_activity_event">EventActivity</string>
+
+    <!--String-->
+    <string name="string_username">Username</string>
+    <string name="string_password">Password</string>
+    <string name="string_login">Login</string>
+    <string name="string_login_out">Sign Out</string>
+    <string name="string_register">Register</string>
+    <string name="string_create">Create</string>
+    <string name="string_firstname">First Name</string>
+    <string name="string_lastname">Last Name</string>
+    <string name="string_open_camera">Open Camera</string>
+    <string name="string_search">Search</string>
+    <string name="string_add">Add</string>
+    <string name="string_event_type">Event Type</string>
+    <string name="string_time">Time</string>
+    <string name="string_delete">Delete</string>
+    <string name="string_gallery">Gallery</string>
+    <string name="string_shared">Shared</string>
+    <string name="string_photographed">Photographed</string>
+    <string name="string_your_pictures">Your Pictures</string>
+    <string name="string_dev">Dev</string>
+    <string name="string_dev_email">dev@dev.com</string>
+    <string name="string_events">Events</string>
+    <string name="string_my_events">My Events</string>
+
+    <!--NOT NEEDED?-->
+    <string name="string_isadmin">isAdmin</string>
+    <string name="string_textview">TextView Loading</string>
 
 </resources>

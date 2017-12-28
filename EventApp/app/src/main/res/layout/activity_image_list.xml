@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context="com.event.app.izhar.eventappbeta.ImageListActivity">
+    tools:context="com.event.app.izhar.eventappbeta.Fragment.ImageListActivity">
 
     <GridView
         android:id="@+id/gallery_image_view"
@@ -14,12 +14,11 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:numColumns="3"
-        android:paddingTop="30dp"
         android:paddingLeft="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:paddingTop="30dp"
 
-    </GridView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/image_list_fab_refresh"
@@ -32,6 +31,7 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@android:drawable/stat_notify_sync"
+
         app:backgroundTint="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="@+id/gallery_image_view"
         app:layout_constraintEnd_toEndOf="parent"

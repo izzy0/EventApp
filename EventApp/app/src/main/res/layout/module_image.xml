@@ -5,9 +5,9 @@
 
     <ImageView
         android:id="@+id/gallery_image_module"
-        android:src="@drawable/placeholder"
-        android:padding="10dp"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="100dp"
+        android:padding="10dp"
+        android:src="@drawable/placeholder" />
 
 </LinearLayout>

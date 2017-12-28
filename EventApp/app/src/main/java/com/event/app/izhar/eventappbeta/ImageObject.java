@@ -1,9 +1,5 @@
 package com.event.app.izhar.eventappbeta;
 
-/**
- * Created by Izhar on 12/4/2017.
- */
-
 public class ImageObject {
     int id;
     String imageURL;

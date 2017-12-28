@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-        <item
-            android:id="@+id/events"
-            android:icon="@android:drawable/ic_dialog_map"
-            android:title="Events" />
-        <item
-            android:id="@+id/view_gallery"
-            android:icon="@android:drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <!--<item-->
-            <!--android:id="@+id/create_event"-->
-            <!--android:icon="@drawable/ic_menu_slideshow"-->
-            <!--android:title="Create Event" />-->
-        <!--<item-->
-            <!--android:id="@+id/nav_login"-->
-            <!--android:icon="@drawable/ic_menu_share"-->
-            <!--android:title="Login" />-->
-    <!--<item-->
-        <!--android:id="@+id/nav_register"-->
-        <!--android:icon="@drawable/ic_menu_share"-->
-        <!--android:title="Register" />-->
+    <item
+        android:id="@+id/events"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="@string/string_events" />
+    <item
+        android:id="@+id/view_gallery"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="@string/string_gallery" />
     <item
         android:id="@+id/nav_account"
         android:icon="@android:drawable/ic_menu_myplaces"
-        android:title="Account" />
+        android:title="@string/title_activity_account" />
 
     <item
         android:id="@+id/nav_signout"
         android:icon="@android:drawable/ic_menu_revert"
-        android:title="Sign Out" />
+        android:title="@string/string_login_out" />
 </menu>

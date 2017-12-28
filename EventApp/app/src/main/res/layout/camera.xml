@@ -6,7 +6,7 @@
     android:weightSum="10"
     android:id="@+id/camera"
     android:layout_alignParentBottom="true"
-    tools:context="com.event.app.izhar.eventappbeta.Gallery"
+    tools:context="com.event.app.izhar.eventappbeta.Fragment.Gallery"
     android:orientation="vertical">
 
 
@@ -23,6 +23,6 @@
         android:layout_height="wrap_content"
         android:background="@android:color/holo_red_dark"
         android:textColor="@android:color/white"
-        android:text="Open Camera"/>
+        android:text="@string/string_open_camera"/>
 
 </LinearLayout>

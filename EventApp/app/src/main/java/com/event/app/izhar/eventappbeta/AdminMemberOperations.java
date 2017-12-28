@@ -9,7 +9,8 @@ import android.widget.Button;
 public class AdminMemberOperations extends AppCompatActivity {
 
     public Button delete;
-//TODO implement add admin members and delete admin members
+
+    //TODO implement add admin members and delete admin members
     public void init() {
         delete = (Button) findViewById(R.id.user_delete_id_button);
 
