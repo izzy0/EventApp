@@ -54,6 +54,7 @@
     <string name="string_dev_email">dev@dev.com</string>
     <string name="string_events">Events</string>
     <string name="string_my_events">My Events</string>
+    <string name="string_location">Location</string>
 
     <!--NOT NEEDED?-->
     <string name="string_isadmin">isAdmin</string>

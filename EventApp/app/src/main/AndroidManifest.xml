@@ -58,7 +58,7 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".Fragment.ImageListActivity"></activity>
+        <activity android:name=".Fragment.ImageListActivity"/>
     </application>
 
 </manifest>

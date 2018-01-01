@@ -20,6 +20,7 @@ import com.android.volley.toolbox.Volley;
 import com.event.app.izhar.eventappbeta.Event;
 import com.event.app.izhar.eventappbeta.R;
 import com.event.app.izhar.eventappbeta.Service.Request.CreateEventRequest;
+import com.event.app.izhar.eventappbeta.User;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +31,7 @@ import java.sql.Time;
 public class CreateEvent extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    private String eventHost;
+    private EditText eventLoc;
     private EditText eventName;
     private EditText eventType;
     //todo change date type
@@ -62,8 +63,12 @@ public class CreateEvent extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_event, container, false);
 
         eventName = (EditText) view.findViewById(R.id.createevent_eventName);
+        //eventType not used
         eventType = (EditText) view.findViewById(R.id.createevent_eventType);
+
         eventDate = (EditText) view.findViewById(R.id.createevent_eventTime);
+        eventLoc = (EditText) view.findViewById(R.id.createevent_eventLoc);
+
         createEventBtn = (Button) view.findViewById(R.id.add_event_button);
 
         Button addButton = (Button) view.findViewById(R.id.add_event_button);
@@ -74,9 +79,10 @@ public class CreateEvent extends Fragment {
 
                 final String eventNameStr = eventName.getText().toString();
                 final String eventDateStr = eventDate.getText().toString();
+                final String eventLocStr = eventLoc.getText().toString();
 
                 //todo pass in user info
-                Event event = new Event(eventDateStr, "admmin", eventNameStr);
+                // new Event(eventDateStr, User.getFirstName(), eventNameStr);
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -105,8 +111,7 @@ public class CreateEvent extends Fragment {
                         }
                     }
                 };
-                String passw = "loc", host = "admin";
-                CreateEventRequest request = new CreateEventRequest(eventDateStr, host, passw, eventNameStr, responseListener);
+                CreateEventRequest request = new CreateEventRequest(User.getUserId(), eventDateStr, eventNameStr, eventLocStr, responseListener);
                 Log.i("THE CREATE EVENT LOG", "[" + request.getParams() + "]");
                 RequestQueue queue = Volley.newRequestQueue(getContext());
                 queue.add(request);

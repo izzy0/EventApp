@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.event.app.izhar.eventappbeta.Fragment.CreateEvent;
 import com.event.app.izhar.eventappbeta.Fragment.EventFragment;
 import com.event.app.izhar.eventappbeta.Fragment.Gallery;
+import com.event.app.izhar.eventappbeta.Fragment.MyEventFragment;
 import com.event.app.izhar.eventappbeta.R;
 import com.event.app.izhar.eventappbeta.User;
 
@@ -104,6 +105,10 @@ public class EventNavigationDrawer extends AppCompatActivity implements Navigati
             case R.id.view_gallery:
                 Intent eventDetailsIntent = new Intent(this, EventDetailsNavigationDrawer.class);
                 startActivity(eventDetailsIntent);
+                break;
+
+            case R.id.myevents:
+                fragment = new MyEventFragment();
                 break;
 
             case R.id.nav_account:

@@ -56,17 +56,37 @@
             android:id="@+id/createevent_eventTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="36dp"
             android:ems="10"
             android:hint="@string/string_time"
+
             android:inputType="textPersonName"
             android:textColor="@color/white"
-
             app:layout_constraintHorizontal_bias="0.502"
+
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/createevent_eventType"
+            app:layout_constraintTop_toBottomOf="@+id/createevent_eventLoc"
+            tools:layout_conversion_absoluteHeight="42dp"
+            tools:layout_conversion_absoluteWidth="215dp"
+            tools:layout_conversion_absoluteX="84dp"
+            tools:layout_conversion_absoluteY="246dp" />
 
+        <EditText
+            android:id="@+id/createevent_eventLoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:ems="10"
+            android:hint="@string/string_location"
+            android:inputType="textPersonName"
+
+            android:textColor="@color/white"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintLeft_toLeftOf="parent"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/createevent_eventType"
             tools:layout_conversion_absoluteHeight="42dp"
             tools:layout_conversion_absoluteWidth="215dp"
             tools:layout_conversion_absoluteX="84dp"
@@ -76,14 +96,15 @@
             android:id="@+id/add_event_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/string_add"
+            android:layout_marginBottom="44dp"
 
+            android:layout_marginTop="8dp"
+            android:text="@string/string_add"
             app:layout_constraintBottom_toBottomOf="parent"
+
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/createevent_eventTime"
-            app:layout_constraintVertical_bias="0.435"
-
             tools:layout_conversion_absoluteHeight="48dp"
             tools:layout_conversion_absoluteWidth="88dp"
             tools:layout_conversion_absoluteX="148dp"
